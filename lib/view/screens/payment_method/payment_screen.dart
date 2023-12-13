@@ -105,6 +105,21 @@ late TextEditingController year = TextEditingController();
               height: 12,
             ),
             CustomTextField(
+              title: "Zip code",
+              hintText: "Enter your zip code",
+              maxLength: 4,
+              textInputAction: TextInputAction.next,
+              keyboardType: TextInputType.number,
+              hintStyle: GoogleFonts.lato(
+                  color: AppColors.foundationGrey200,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14),
+            ),
+
+            const SizedBox(
+              height: 12,
+            ),
+            CustomTextField(
               title: "Amount",
               hintText: "\$ Amount",
               inputTextStyle: const TextStyle(
