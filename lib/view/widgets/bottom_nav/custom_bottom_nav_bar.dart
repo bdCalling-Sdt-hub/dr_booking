@@ -101,8 +101,8 @@ class MenuBarItems extends StatelessWidget {
             CustomImage(
               imageType: ImageType.svg,
                 imageColor: index != selectedIndex
-                    ? AppColors.whiteColor
-                    : AppColors.foundationGrey,
+                    ? const Color(0xff91D2B2)
+                    : AppColors.whiteColor,
                 size: 24,
                 imageSrc: image),
 

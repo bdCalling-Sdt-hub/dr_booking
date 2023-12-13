@@ -121,12 +121,18 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textOverflow: TextOverflow.ellipsis,
                     color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
                 ),
-
-
               ],
             ),
             const SizedBox(height: 12,),
-           const CustomText(text: "Signature Below",textAlign: TextAlign.start,fontWeight: FontWeight.w500,fontSize: 14,),
+
+            CustomTextField(title: "Name",
+              hintText: "Enter Your Name",
+              textInputAction: TextInputAction.done,
+              maxLines: 1,
+              hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+            ),
+
+          /* const CustomText(text: "Signature Below",textAlign: TextAlign.start,fontWeight: FontWeight.w500,fontSize: 14,),
             const SizedBox(height: 8,),
             Container(
               height: 100,
@@ -141,7 +147,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                 strokeColor: Colors.black87,
                 backgroundColor: Colors.white,
               ),
-            ),
+            ),*/
             const SizedBox(height: 40,),
 
             CustomButton(onTap: (){

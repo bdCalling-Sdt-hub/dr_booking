@@ -123,12 +123,7 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
               maxLines: 3,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
             ),
-            const SizedBox(height: 12,),
-            CustomTextField(title: "Reason for visit",
-              hintText: "Describe if you have allergy problems",
-              maxLines: 3,
-              hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
-            ),
+
             const SizedBox(height: 12,),
             CustomTextField(title: "Present Medications",
               hintText: "Describe your present medications (if any)",

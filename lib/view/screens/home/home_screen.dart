@@ -17,12 +17,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("LOGO"),
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-      ),
+      // appBar: AppBar(
+      //   title: const Text("LOGO"),
+      //   centerTitle: true,
+      //   automaticallyImplyLeading: false,
+      // ),
       // backgroundColor: Colors.amberAccent,
+
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 40.0,horizontal: 20),
         child: Column(
@@ -32,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
              clipBehavior:Clip.none,
               children: [
                 Container(
+                  padding: EdgeInsets.only(top: 8),
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       color: AppColors.foundationColor1,
@@ -41,6 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      SizedBox(),
+
                       SizedBox(),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                          ),
                        ],
                       ),
-
+                      SizedBox(),
                     ],
                   ),
                 ),
