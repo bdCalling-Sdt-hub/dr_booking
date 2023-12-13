@@ -4,6 +4,7 @@ import 'package:dr_booking/view/widgets/buttons/custom_button.dart';
 import 'package:dr_booking/view/widgets/custom_text_field/custom_text_field.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
@@ -54,29 +55,42 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
             const SizedBox(height: 12,),
             CustomTextField(title: "Start Weight (Ibs)",
               hintText: "start weight",
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.next,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
             ),
             const SizedBox(height: 12,),
             CustomTextField(title: "Current  Weight (Ibs)",
               hintText: "Current weight",
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.next,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
             ),
 
             const SizedBox(height: 12,),
             CustomTextField(title: "Goal Weight (Ibs)",
               hintText: "Goal Weight",
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.next,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
             ),
 
             const SizedBox(height: 12,),
             CustomTextField(title: "Blood Pressure",
               hintText: "120/80",
+              maxLength: 6,
+              inputFormatters: [CardExpirationFormatter()],
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.next,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
             ),
 
             const SizedBox(height: 12,),
             CustomTextField(title: "List all other prescribed medications (if any)",
               hintText: "Type Here",
+
+              keyboardType: TextInputType.text,
+              textInputAction: TextInputAction.next,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
             ),
 
@@ -84,22 +98,26 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
             const SizedBox(height: 12,),
             CustomTextField(title: "Do you want a refill for your medication?",
               hintText: "Yes or No",
+              textInputAction: TextInputAction.next,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
             ),
 
             const SizedBox(height: 12,),
             CustomTextField(title: "Are you experiencing any of these symptoms with your weight loss medications? Check all that apply",
               hintText: "Type Here",
+              textInputAction: TextInputAction.next,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
 
             const SizedBox(height: 12,),
             CustomTextField(title: "Please enter new pharmacy name and address if there has been a change in your pharmacy information",
               hintText: "Type Here",
+              textInputAction: TextInputAction.next,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
 
             const SizedBox(height: 12,),
             CustomTextField(title: "Are you experiencing any of these symptoms with your weight loss medications? Check all that apply",
               hintText: "Type Here",
+              textInputAction: TextInputAction.next,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
             const SizedBox(height: 12,),
             Row(
@@ -159,3 +177,30 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
     );
   }
 }
+
+class CardExpirationFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue, TextEditingValue newValue) {
+    final newValueString = newValue.text;
+    String valueToReturn = '';
+
+    for (int i = 0; i < newValueString.length; i++) {
+      if (newValueString[i] != '/') valueToReturn += newValueString[i];
+      var nonZeroIndex = i + 1;
+      final contains = valueToReturn.contains(RegExp(r'\/'));
+      if (nonZeroIndex % 3 == 0 &&
+          nonZeroIndex != newValueString.length &&
+          !(contains)) {
+        valueToReturn += '/';
+      }
+    }
+    return newValue.copyWith(
+      text: valueToReturn,
+      selection: TextSelection.fromPosition(
+        TextPosition(offset: valueToReturn.length),
+      ),
+    );
+  }
+}
+

@@ -8,6 +8,7 @@ import 'package:dr_booking/view/screens/payment_method/payment_method_screen.dar
 import 'package:dr_booking/view/screens/payment_method/payment_screen.dart';
 import 'package:dr_booking/view/screens/progress_form/progress_form_screen.dart';
 import 'package:dr_booking/view/screens/setting/about_us_screen.dart';
+import 'package:dr_booking/view/screens/setting/contact_us_screen.dart';
 import 'package:dr_booking/view/screens/setting/privacy_policy_screen.dart';
 import 'package:dr_booking/view/screens/setting/term_condition_screen.dart';
 import 'package:dr_booking/view/screens/splash/splash_screen.dart';
@@ -25,6 +26,7 @@ class AppRoute {
   static const String termCondition= "/termCondition_screen";
   static const String privacyPolicy= "/privacyPolicy_screen";
   static const String aboutUs= "/about_us_screen";
+  static const String contactUsScreen= "/contactUsScreen_screen";
 
   static List<GetPage> routes = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
@@ -38,5 +40,6 @@ class AppRoute {
     GetPage(name: termCondition, page: () => const TemrConditionsScreen()),
     GetPage(name: privacyPolicy, page: () => const PrivacyPolicyScreen()),
     GetPage(name: aboutUs, page: () => const AboutUsScreen()),
+    GetPage(name: contactUsScreen, page: () => const ContactUsScreen()),
   ];
 }

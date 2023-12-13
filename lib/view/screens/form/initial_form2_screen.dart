@@ -18,6 +18,9 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
   bool valuesecond = false;
   bool valuefirst1 = false;
   bool valuesecond1= false;
+  int selected =  0;
+
+  List mailing =  ["Yes","Not a this time"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +39,8 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
               Icons.arrow_back_ios_new,
               color: AppColors.foundationGrey,
               size: 20,
-            )),
+            )
+        ),
       ),
       body:  SingleChildScrollView(
         padding: const EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 24),
@@ -81,36 +85,73 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
 
             const CustomText(text: "Would you like to be added to our mailing list?",
               color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w500,),
-            Row(
-              children: [
-                Checkbox(
-                  checkColor: Colors.white,
-                  activeColor: AppColors.foundationColor,
-                  value: this.valuefirst1,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      this.valuefirst1 = value!;
-                    });
-                  },
-                ),
-                const CustomText(text: "Yes",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Checkbox(
+            //       checkColor: Colors.white,
+            //       activeColor: AppColors.foundationColor,
+            //       value: this.valuefirst1,
+            //       onChanged: (bool? value) {
+            //         setState(() {
+            //           this.valuefirst1 = value!;
+            //         });
+            //       },
+            //     ),
+            //     const CustomText(text: "Yes",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
+            //   ],
+            // ),
+            //
+            // Row(
+            //   children: [
+            //     Checkbox(
+            //       checkColor: Colors.white,
+            //       activeColor: AppColors.foundationColor,
+            //       value: this.valuesecond1,
+            //       onChanged: (bool? value) {
+            //         setState(() {
+            //           this.valuesecond1 = value!;
+            //         });
+            //       },
+            //     ),
+            //     const CustomText(text: "Not at this time",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
+            //   ],
+            // ),
 
-            Row(
-              children: [
-                Checkbox(
-                  checkColor: Colors.white,
-                  activeColor: AppColors.foundationColor,
-                  value: this.valuesecond1,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      this.valuesecond1 = value!;
-                    });
-                  },
-                ),
-                const CustomText(text: "Not at this time",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
-              ],
+
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                children: List.generate(mailing.length, (index){
+                  return GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        selected = index;
+                      });
+                    },
+                    child: Row(
+                      children: [
+                        Container(
+                         margin: const EdgeInsets.only(top: 12),
+                          height : 20,
+                          width: 20,
+                          decoration:  BoxDecoration(
+                            color:selected == index? AppColors.foundationColor: AppColors.whiteColor,
+                            borderRadius: BorderRadius.circular(4),
+                            border: Border.all (color:selected == index? AppColors.foundationColor: AppColors.foundationGrey,width: 2),
+
+                          ),
+                          child: selected == index ? const Center(child: Align(
+                              alignment: Alignment.center,
+                              child: Icon(Icons.check_outlined,size: 18,color: AppColors.whiteColor ,))) : const SizedBox(),
+                        ),
+                         const SizedBox(width: 12,),
+                         CustomText(top:12,text: mailing[index],color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
+
+                      ],
+                    ),
+                  );
+                }),
+              ),
             ),
 
             CustomTextField(title: "Occupation",

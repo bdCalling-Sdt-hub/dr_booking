@@ -15,7 +15,7 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
 
-  List<String> methodName =  ["Terms & Condition","Privacy Policy","About Us"];
+  List<String> methodName =  ["Terms & Condition","Privacy Policy","About Us","Contact Us"];
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
       ),
       body:  SingleChildScrollView(
-        padding:  EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 24),
+        padding:  const EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -41,7 +41,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 return  GestureDetector(
                   onTap: (){
                     setState(() {
-                      index == 0 ? Get.toNamed(AppRoute.termCondition) :index==1? Get.toNamed(AppRoute.privacyPolicy) : Get.toNamed(AppRoute.aboutUs) ;
+                      index == 0 ? Get.toNamed(AppRoute.termCondition) :index==1? Get.toNamed(AppRoute.privacyPolicy) : index == 2 ?Get.toNamed(AppRoute.aboutUs):Get.toNamed(AppRoute.contactUsScreen) ;
                     });
                   },
                   child: Container(
