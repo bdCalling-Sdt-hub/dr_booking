@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 CustomElevatedButton(
                   onPressed: () {
-                    Get.toNamed(AppRoute.preogressSreen);
+                    Get.toNamed(AppRoute.preogressSreen    );
                   },
                   titleColor: AppColors.foundationColor,
                   titleText: AppStrings.existingPatient,

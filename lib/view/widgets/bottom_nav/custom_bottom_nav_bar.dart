@@ -1,120 +1,114 @@
-// import 'package:flutter/material.dart';
-//
-//
-// class CustomBottomNavBar extends StatefulWidget {
-//   final int currentIndex;
-//
-//   const CustomBottomNavBar({required this.currentIndex, super.key});
-//
-//   @override
-//   State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
-// }
-//
-// class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
-//   var bottomNavIndex = 0;
-//
-//   List<String> unselectedIcon = [
-//     "assets/icons/unselected/home.svg",
-//     "assets/icons/unselected/search.svg",
-//     "assets/icons/unselected/viewList.svg",
-//     "assets/icons/unselected/profile.svg",
-//   ];
-//
-//   List<String> selectedIcon = [
-//     "assets/icons/selected/home.svg",
-//     "assets/icons/selected/search.svg",
-//     "assets/icons/selected/viewList.svg",
-//     "assets/icons/selected/profile.svg",
-//   ];
-//
-//   @override
-//   void initState() {
-//     Get.find<SocketService>().connectToSocket();
-//     bottomNavIndex = widget.currentIndex;
-//     getUid();
-//     super.initState();
-//   }
-//
-//
-//   getUid()async{
-//     var prefs= await SharedPreferences.getInstance();
-//     var id=prefs.getString(SharedPreferenceHelper.userIdKey)??"";
-//     debugPrint("================> id :$id");
-//     Get.find<SocketService>().joinRoom(id);
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: 76,
-//       width: MediaQuery.of(context).size.width,
-//       padding: const EdgeInsetsDirectional.symmetric(horizontal: 24, vertical: 16),
-//       alignment: Alignment.center,
-//       decoration: const ShapeDecoration(
-//         gradient: LinearGradient(
-//           begin: Alignment(-0.00, -1.00),
-//           end: Alignment(0, 1),
-//           colors: [Color(0xFF787878), Color(0xFF434343), Colors.black],
-//         ),
-//         shape: RoundedRectangleBorder(
-//           borderRadius: BorderRadius.only(
-//             topLeft: Radius.circular(8),
-//             topRight: Radius.circular(8),
-//           ),
-//         ),
-//       ),
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//         children: List.generate(
-//           unselectedIcon.length,
-//               (index) => InkWell(
-//             onTap: () => onTap(index),
-//             child: Padding(
-//               padding: const EdgeInsetsDirectional.all(4),
-//               child: Align(
-//                 alignment: Alignment.center,
-//                 child: Column(
-//                   children: [
-//                     index == bottomNavIndex ? SvgPicture.asset(selectedIcon[index], height: 24, width: 24) : SvgPicture.asset(unselectedIcon[index], height: 24, width: 24),
-//                     const SizedBox(height: 8),
-//                     index == bottomNavIndex ? Container(
-//                       width: 4,
-//                       height: 4,
-//                       decoration: const ShapeDecoration(
-//                         color: Colors.white,
-//                         shape: OvalBorder(),
-//                       ),
-//                     ) : const SizedBox()
-//                   ],
-//                 ),
-//               ),
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-//
-//   void onTap(int index) {
-//     if (index == 0) {
-//       if (!(widget.currentIndex == 0)) {
-//         Get.to(() => const HomeScreen());
-//       }
-//     }
-//     else if (index == 1) {
-//       if (!(widget.currentIndex == 1)) {
-//         Get.to(() => const SearchScreen());
-//       }
-//     }
-//     else if (index == 2) {
-//       if (!(widget.currentIndex == 2)) {
-//         Get.to(() => const BookingList());
-//       }
-//     }
-//     else if (index == 3) {
-//       if (!(widget.currentIndex == 3)) {
-//         Get.to(() => const ProfileScreen());
-//       }
-//     }
-//   }
-// }
+import 'package:dr_booking/utils/app_colors.dart';
+import 'package:dr_booking/utils/app_icons.dart';
+import 'package:dr_booking/view/screens/about_dr/about_dr_screen.dart';
+import 'package:dr_booking/view/screens/home/home_screen.dart';
+import 'package:dr_booking/view/screens/setting/setting_screen.dart';
+import 'package:dr_booking/view/widgets/custom_image/custom_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+class CustomNavBar extends StatefulWidget {
+  const CustomNavBar({super.key});
+
+  @override
+  State<CustomNavBar> createState() => _CustomNavBarState();
+}
+
+class _CustomNavBarState extends State<CustomNavBar> {
+  int selectedIndex = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> screens = <Widget>[
+      const HomeScreen(),
+      const AboutDrScreen(),
+      const SettingScreen(),
+    ];
+    List<Widget> manuBarItems = [
+      MenuBarItems(
+          index: 0,
+          selectedIndex: selectedIndex,
+          image: AppIcons.home),
+      MenuBarItems(
+          index: 1,
+          selectedIndex: selectedIndex,
+          image: AppIcons.about),
+      MenuBarItems(
+          index: 2,
+          selectedIndex: selectedIndex,
+          image: AppIcons.settings),
+    ];
+
+    return SafeArea(
+      top: true,
+      child: Scaffold(
+        backgroundColor: Colors.blue,
+        extendBody: true,
+        bottomNavigationBar: Container(
+          height: 100,
+          alignment: Alignment.bottomCenter,
+          padding: const EdgeInsets.only(top: 30),
+          decoration: const BoxDecoration(
+            color: AppColors.foundationColor,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: List.generate(
+              manuBarItems.length,
+                  (index) {
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                  },
+                  child: manuBarItems[index],
+                );
+              },
+            ),
+          ),
+        ),
+        body: screens[selectedIndex],
+      ),
+    );
+  }
+}
+
+class MenuBarItems extends StatelessWidget {
+  const MenuBarItems(
+      {super.key,
+        required this.image,
+        required this.index,
+        required this.selectedIndex,
+      });
+
+  final String image;
+  final int index;
+  final int selectedIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Column(
+          children: [
+            CustomImage(
+              imageType: ImageType.svg,
+                imageColor: index != selectedIndex
+                    ? AppColors.whiteColor
+                    : AppColors.foundationGrey,
+                size: 24,
+                imageSrc: image),
+
+          ],
+        ),
+      ],
+    );
+  }
+}

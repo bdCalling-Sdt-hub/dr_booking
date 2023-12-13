@@ -1,10 +1,12 @@
 import 'package:dr_booking/utils/app_colors.dart';
+import 'package:dr_booking/utils/app_routes.dart';
 import 'package:dr_booking/view/widgets/buttons/custom_button.dart';
 import 'package:dr_booking/view/widgets/custom_text_field/custom_text_field.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 class ProgressFormScreen extends StatefulWidget {
   const ProgressFormScreen({super.key});
 
@@ -18,6 +20,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: AppColors.bgColor,
       appBar: AppBar(
       backgroundColor: AppColors.bgColor,
       centerTitle: true,
@@ -37,7 +40,8 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
       body: SingleChildScrollView(
         padding: const EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 24),
         child: Column(
-          children: [
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
             CustomTextField(title: "Name",
               hintText: "Name",
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
@@ -110,23 +114,38 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     });
                   },
                 ),
-                const CustomText(text: "This information is current and true to the\nbest of my knowledge.",
-                  textAlign: TextAlign.start,
-                  color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
+                const Flexible(
+                  child: CustomText(text: "This information is current and true to the\nbest of my knowledge.",
+                    textAlign: TextAlign.start,
+                    maxLines: 2,
+                    textOverflow: TextOverflow.ellipsis,
+                    color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
+                ),
 
 
               ],
             ),
-            CustomTextField(title: "",
-              hintText: "Signature",
-              maxLines: 3,
-              hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
-
-
+            const SizedBox(height: 12,),
+           const CustomText(text: "Signature Below",textAlign: TextAlign.start,fontWeight: FontWeight.w500,fontSize: 14,),
+            const SizedBox(height: 8,),
+            Container(
+              height: 100,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                border: Border.all(color: AppColors.foundationGreen100,width: 1),
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child:  const SfSignaturePad(
+                minimumStrokeWidth: 1,
+                maximumStrokeWidth: 3,
+                strokeColor: Colors.black87,
+                backgroundColor: Colors.white,
+              ),
+            ),
             const SizedBox(height: 40,),
 
             CustomButton(onTap: (){
-               // Get.toNamed(AppRoute.);
+               Get.toNamed(AppRoute.paymentScreen);
             },title: 'Continue',)
           ],
         ),

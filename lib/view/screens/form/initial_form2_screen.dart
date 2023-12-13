@@ -16,6 +16,8 @@ class InitialForm2Screen extends StatefulWidget {
 class _InitialForm2ScreenState extends State<InitialForm2Screen> {
   bool valuefirst = false;
   bool valuesecond = false;
+  bool valuefirst1 = false;
+  bool valuesecond1= false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,14 +86,14 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                 Checkbox(
                   checkColor: Colors.white,
                   activeColor: AppColors.foundationColor,
-                  value: this.valuefirst,
+                  value: this.valuefirst1,
                   onChanged: (bool? value) {
                     setState(() {
-                      this.valuefirst = value!;
+                      this.valuefirst1 = value!;
                     });
                   },
                 ),
-                const CustomText(text: "Your cell number",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
+                const CustomText(text: "Yes",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
               ],
             ),
 
@@ -100,14 +102,14 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                 Checkbox(
                   checkColor: Colors.white,
                   activeColor: AppColors.foundationColor,
-                  value: this.valuesecond,
+                  value: this.valuesecond1,
                   onChanged: (bool? value) {
                     setState(() {
-                      this.valuesecond = value!;
+                      this.valuesecond1 = value!;
                     });
                   },
                 ),
-                const CustomText(text: "Email",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
+                const CustomText(text: "Not at this time",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
               ],
             ),
 
@@ -115,19 +117,19 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
               hintText: "Enter your occupation",
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
             ),
-            SizedBox(height: 12,),
+            const SizedBox(height: 12,),
             CustomTextField(title: "Reason for visit",
               hintText: "Enter reason here",
               maxLines: 3,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
             ),
-            SizedBox(height: 12,),
+            const SizedBox(height: 12,),
             CustomTextField(title: "Reason for visit",
               hintText: "Describe if you have allergy problems",
               maxLines: 3,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
             ),
-            SizedBox(height: 12,),
+            const SizedBox(height: 12,),
             CustomTextField(title: "Present Medications",
               hintText: "Describe your present medications (if any)",
               maxLines: 3,
@@ -136,7 +138,7 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
         const SizedBox(height: 40,),
 
         CustomButton(onTap: (){
-          // Get.toNamed(AppRoute.);
+           Get.toNamed(AppRoute.paymentScreen);
         },title: 'Continue',)
           ],
         ),

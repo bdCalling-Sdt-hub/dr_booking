@@ -56,7 +56,7 @@ class CustomTextField extends StatefulWidget {
   final TextStyle? hintStyle;
   final Color? fillColor;
   final Color? suffixIconColor;
-  final Widget? suffixIcon;
+  final  Widget? suffixIcon;
   final double fieldBorderRadius;
   final bool isPassword;
   final bool isPrefixIcon;
@@ -111,9 +111,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
           maxLines: widget.maxLines,
           obscureText: widget.isPassword ? obscureText : false,
           validator: widget.validator,
+
           decoration: InputDecoration(
             //errorText: widget.errorText,
             counterText: "",
+            suffixIcon: widget.suffixIcon,
             hintText: widget.hintText,
             hintStyle: widget.hintStyle,
             fillColor: widget.fillColor,

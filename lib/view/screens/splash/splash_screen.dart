@@ -1,6 +1,7 @@
 import 'package:dr_booking/utils/app_colors.dart';
 import 'package:dr_booking/utils/app_strings.dart';
 import 'package:dr_booking/view/screens/home/home_screen.dart';
+import 'package:dr_booking/view/widgets/bottom_nav/custom_bottom_nav_bar.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 2), () {
       // Check if the widget is still mounted before navigating
       if (mounted) {
-         Get.to(() => const HomeScreen());
+         Get.to(() => const CustomNavBar());
       }
     });
   }

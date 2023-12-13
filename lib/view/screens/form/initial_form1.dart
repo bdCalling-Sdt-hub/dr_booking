@@ -16,6 +16,33 @@ class InitialForm1Screen extends StatefulWidget {
 }
 
 class _InitialForm1ScreenState extends State<InitialForm1Screen> {
+  TextEditingController dateController = TextEditingController();
+
+  Future<void> dateofbirthPicker(BuildContext context) async{
+    final DateTime? picked = await showDatePicker(
+      builder: (context, child) => Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme:  const ColorScheme.light(
+              primary: AppColors.foundationColor, // <-- SEE HERE
+              onPrimary: AppColors.whiteColor, // <-- SEE HERE
+              onSurface: AppColors.foundationColor, // <-- SEE HERE
+            ),
+          ),
+          child: child!
+      ),
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != dateController.text) {
+      dateController.text = "${picked.year}-${picked.month}-${picked.day}";
+     setState(() {
+
+     });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,8 +75,14 @@ class _InitialForm1ScreenState extends State<InitialForm1Screen> {
             ),
             const SizedBox(height: 12,),
             CustomTextField(title: "Date of Birth",
-            hintText: "dd/mm/yyyy",
+            hintText: "yyyy/mm/dd",
+              suffixIcon:  Icon(Icons.calendar_month_rounded,size: 24,color: AppColors.foundationColor,),
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+              textEditingController: dateController,
+              onTap: (){
+                dateofbirthPicker(context);
+              },
+              cursorColor: AppColors.foundationColor,
             ),
             const SizedBox(height: 12,),
             CustomTextField(title: "Address",
@@ -68,7 +101,7 @@ class _InitialForm1ScreenState extends State<InitialForm1Screen> {
                   flex: 2,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 12),
+                        horizontal: 12, vertical: 10),
                     alignment: Alignment.center,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
