@@ -85,6 +85,7 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
 
             const CustomText(text: "Would you like to be added to our mailing list?",
               color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w500,),
+
             // Row(
             //   children: [
             //     Checkbox(
@@ -116,7 +117,6 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
             //     const CustomText(text: "Not at this time",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
             //   ],
             // ),
-
 
             Padding(
               padding: const EdgeInsets.all(12.0),
@@ -169,6 +169,11 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
             CustomTextField(title: "Present Medications",
               hintText: "Describe your present medications (if any)",
               maxLines: 3,
+              hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+            ),
+            const SizedBox(height: 12,),
+            CustomTextField(title: "Prefarable time",
+              hintText: "Enter your prefarable time (if any)",
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
             ),
         const SizedBox(height: 40,),

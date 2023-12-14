@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 class ProgressFormScreen extends StatefulWidget {
   const ProgressFormScreen({super.key});
 
@@ -120,6 +119,12 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
               textInputAction: TextInputAction.next,
               hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
             const SizedBox(height: 12,),
+            CustomTextField(title: "Prefarable time",
+              hintText: "Enter your prefarable time (if any)",
+              hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+            ),
+
+            const SizedBox(height: 12,),
             Row(
               children: [
                 Checkbox(
@@ -166,6 +171,8 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                 backgroundColor: Colors.white,
               ),
             ),*/
+
+
             const SizedBox(height: 40,),
 
             CustomButton(onTap: (){

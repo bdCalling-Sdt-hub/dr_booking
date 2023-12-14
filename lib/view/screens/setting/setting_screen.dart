@@ -15,7 +15,7 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
 
-  List<String> methodName =  ["Terms & Condition","Privacy Policy","About Us","Contact Us"];
+  List<String> methodName =  ["Terms & Condition","Privacy Policy","About Us","Contact Us"," Share App"];
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 return  GestureDetector(
                   onTap: (){
                     setState(() {
-                      index == 0 ? Get.toNamed(AppRoute.termCondition) :index==1? Get.toNamed(AppRoute.privacyPolicy) : index == 2 ?Get.toNamed(AppRoute.aboutUs):Get.toNamed(AppRoute.contactUsScreen) ;
+                      index == 0 ? Get.toNamed(AppRoute.termCondition) :index==1? Get.toNamed(AppRoute.privacyPolicy) : index == 2 ?Get.toNamed(AppRoute.aboutUs): index == 3? Get.toNamed(AppRoute.contactUsScreen) : Get.toNamed(AppRoute.shareScreen) ;
                     });
                   },
                   child: Container(

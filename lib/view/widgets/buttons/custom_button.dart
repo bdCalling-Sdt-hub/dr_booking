@@ -8,6 +8,7 @@ class CustomButton extends StatelessWidget {
 
   final VoidCallback onTap;
   final String title;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
