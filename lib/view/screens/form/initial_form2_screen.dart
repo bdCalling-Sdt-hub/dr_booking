@@ -86,37 +86,7 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
             const CustomText(text: "Would you like to be added to our mailing list?",
               color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w500,),
 
-            // Row(
-            //   children: [
-            //     Checkbox(
-            //       checkColor: Colors.white,
-            //       activeColor: AppColors.foundationColor,
-            //       value: this.valuefirst1,
-            //       onChanged: (bool? value) {
-            //         setState(() {
-            //           this.valuefirst1 = value!;
-            //         });
-            //       },
-            //     ),
-            //     const CustomText(text: "Yes",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
-            //   ],
-            // ),
-            //
-            // Row(
-            //   children: [
-            //     Checkbox(
-            //       checkColor: Colors.white,
-            //       activeColor: AppColors.foundationColor,
-            //       value: this.valuesecond1,
-            //       onChanged: (bool? value) {
-            //         setState(() {
-            //           this.valuesecond1 = value!;
-            //         });
-            //       },
-            //     ),
-            //     const CustomText(text: "Not at this time",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
-            //   ],
-            // ),
+
 
             Padding(
               padding: const EdgeInsets.all(12.0),
