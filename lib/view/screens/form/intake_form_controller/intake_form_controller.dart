@@ -36,21 +36,7 @@ sendIntakeFormData() async{
    var request = http.MultipartRequest('POST', Uri.parse("http://192.168.10.13:8000/api/intake-form"),);
 
   Map<String ,String>  body= {
-/*
 
-'name': nameController.text,
-    'dateOfBirth': dobController.text,
-    'address': addressController.text,
-    'phoneNumber': phoneNumberController.text,
-    'email': emailController.text ,
-    'contactBy':contactby[selectedcategory] ,
-    'mailAddWithUser': mailAddWithUser[selectedIndex],
-    'occupation': occupationController.text,
-    'reasonOfVisit': reasonVisitController.text,
-    'allergies': allergiesdesriptionController.text,
-    'presentMedication': presentMedicationController.text,
-    'prefarableTime': prefareableTimeController.text
-    */
 
 
     'name': nameController.text,
