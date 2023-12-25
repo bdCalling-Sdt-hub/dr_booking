@@ -36,32 +36,35 @@ sendIntakeFormData() async{
    var request = http.MultipartRequest('POST', Uri.parse("http://192.168.10.13:8000/api/intake-form"),);
 
   Map<String ,String>  body= {
- 'name': nameController.text,
+/*
+
+'name': nameController.text,
     'dateOfBirth': dobController.text,
     'address': addressController.text,
     'phoneNumber': phoneNumberController.text,
-    'email': emailController.text,
+    'email': emailController.text ,
     'contactBy':contactby[selectedcategory] ,
     'mailAddWithUser': mailAddWithUser[selectedIndex],
-    'occupation': occupationController.text ?? "",
-    'reasonOfVisit': reasonVisitController.text ?? "",
-    'allergies': allergiesdesriptionController.text ?? "",
-    'presentMedication': presentMedicationController.text ??"",
-    'prefarableTime': prefareableTimeController.text ?? ""
+    'occupation': occupationController.text,
+    'reasonOfVisit': reasonVisitController.text,
+    'allergies': allergiesdesriptionController.text,
+    'presentMedication': presentMedicationController.text,
+    'prefarableTime': prefareableTimeController.text
+    */
 
 
-   /* 'name': 'tushar',
-    'dateOfBirth': '2023-12-13',
-    'address': 'jatrabari,matuail,demra-dhaka',
-    'phoneNumber': '01409130405',
-    'email': 'tusharer11e@gmail.com',
-    'contactBy': 'email',
-    'mailAddWithUser': 'yes',
-    'occupation': 'Businessman',
-    'reasonOfVisit': 'pain',
-    'allergies': 'no i have no allergies',
-    'presentMedication': 'lorem ipsum',
-    'prefarableTime': '3:20 PM'*/
+    'name': nameController.text,
+    'dateOfBirth': dobController.text,
+    'address': addressController.text,
+    'phoneNumber': phoneNumberController.text,
+    'email': emailController.text ,
+    'contactBy':contactby[selectedcategory] ,
+    'mailAddWithUser': mailAddWithUser[selectedIndex],
+    'occupation': occupationController.text,
+    'reasonOfVisit': reasonVisitController.text,
+     'allergies': allergiesdesriptionController.text,
+     'presentMedication': presentMedicationController.text,
+    'prefarableTime': prefareableTimeController.text
 
   };
 
