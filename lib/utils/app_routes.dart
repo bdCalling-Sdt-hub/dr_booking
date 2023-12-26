@@ -7,11 +7,11 @@ import 'package:dr_booking/view/screens/home/home_screen.dart';
 import 'package:dr_booking/view/screens/payment_method/payment_method_screen.dart';
 import 'package:dr_booking/view/screens/payment_method/payment_screen.dart';
 import 'package:dr_booking/view/screens/progress_form/progress_form_screen.dart';
-import 'package:dr_booking/view/screens/setting/about_us_screen.dart';
-import 'package:dr_booking/view/screens/setting/contact_us_screen.dart';
-import 'package:dr_booking/view/screens/setting/privacy_policy_screen.dart';
+import 'package:dr_booking/view/screens/setting/about_us/about_us_screen.dart';
+import 'package:dr_booking/view/screens/setting/contact_us/contact_us_screen.dart';
+import 'package:dr_booking/view/screens/setting/privacy_policy/privacy_policy_screen.dart';
 import 'package:dr_booking/view/screens/setting/share_screen.dart';
-import 'package:dr_booking/view/screens/setting/term_condition_screen.dart';
+import 'package:dr_booking/view/screens/setting/term_condition/term_condition_screen.dart';
 import 'package:dr_booking/view/screens/splash/splash_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
@@ -43,7 +43,7 @@ class AppRoute {
     GetPage(name: termCondition, page: () => const TemrConditionsScreen()),
     GetPage(name: privacyPolicy, page: () => const PrivacyPolicyScreen()),
     GetPage(name: aboutUs, page: () => const AboutUsScreen()),
-    GetPage(name: contactUsScreen, page: () => const ContactUsScreen()),
+    GetPage(name: contactUsScreen, page: () =>  ContactUsScreen()),
     GetPage(name: shareScreen, page: () => const ShareScreen()),
   ];
 }

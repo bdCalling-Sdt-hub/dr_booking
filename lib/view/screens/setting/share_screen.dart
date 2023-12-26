@@ -1,12 +1,10 @@
 import 'package:dr_booking/utils/app_colors.dart';
-import 'package:dr_booking/utils/app_routes.dart';
-import 'package:dr_booking/utils/app_strings.dart';
 import 'package:dr_booking/view/widgets/buttons/custom_button.dart';
 import 'package:dr_booking/view/widgets/buttons/custom_elevated_button.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 class ShareScreen extends StatelessWidget {
   const ShareScreen({super.key});
 
@@ -31,27 +29,26 @@ class ShareScreen extends StatelessWidget {
             )),
       ),
       body: Padding(
-        padding: EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 24),
+        padding: const EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomButton(onTap: (){
-              Get.toNamed(AppRoute.paymentScreen);
+            CustomButton(onTap: ()async{
+
+             await Share.share(subject: "this is app","dfsdfgsafgdfg");
             },title: 'For iOS',),
            const SizedBox(height: 16,),
       CustomElevatedButton(
         onPressed: () {
-          // Get.toNamed(AppRoute.preogressSreen    );
+          Share.share("Share this app",subject: "any kind of");
         },
         titleColor: AppColors.foundationColor,
         titleText: "For Android",
         buttonColor: AppColors.whiteColor,
         borderColor: AppColors.foundationColor,
         buttonRadius: 8,
-
       ),
-
 
           ],
         ),

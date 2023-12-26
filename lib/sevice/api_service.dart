@@ -11,8 +11,6 @@ import '../core/global/api_response_method.dart';
 import '../core/global/api_response_model.dart';
 
 class ApiService {
-/*  SharedPreferences sharedPreferences;
-  ApiService({required this.sharedPreferences});*/
 
   Future<ApiResponseModel> request(
       String uri, String method, Map<String, dynamic>? params,
@@ -85,54 +83,15 @@ class ApiService {
           ApiAuthorizationResponseModel authorizationResponseModel =
           ApiAuthorizationResponseModel.fromJson(jsonDecode(response.body));
           if (authorizationResponseModel.message == 'Unauthenticated') {
-     /*       sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, false);
-            sharedPreferences.remove(SharedPreferenceHelper.token);
-            sharedPreferences.remove(SharedPreferenceHelper.accessTokenKey);
-            sharedPreferences.remove(SharedPreferenceHelper.userIdKey);
-            sharedPreferences.remove(SharedPreferenceHelper.accessTokenType);
-            sharedPreferences.remove(SharedPreferenceHelper.userEmailKey);
-            sharedPreferences.remove(SharedPreferenceHelper.userPhoneNumber);
-            sharedPreferences.remove(SharedPreferenceHelper.userFullName);
-            sharedPreferences.remove(SharedPreferenceHelper.userDob);
-            sharedPreferences.remove(SharedPreferenceHelper.userAddress);
-            sharedPreferences.remove(SharedPreferenceHelper.userImage);
-            Get.offAllNamed(AppRoute.signInScreen);*/
+
           }
         } catch (e) {
           e.toString();
         }
 
         return ApiResponseModel(200, 'Success', response.body);
-      } else if (response.statusCode == 401) {
-    /*    sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, false);
-        sharedPreferences.remove(SharedPreferenceHelper.token);
-        sharedPreferences.remove(SharedPreferenceHelper.accessTokenKey);
-        sharedPreferences.remove(SharedPreferenceHelper.userIdKey);
-        sharedPreferences.remove(SharedPreferenceHelper.accessTokenType);
-        sharedPreferences.remove(SharedPreferenceHelper.userEmailKey);
-        sharedPreferences.remove(SharedPreferenceHelper.userPhoneNumber);
-        sharedPreferences.remove(SharedPreferenceHelper.userFullName);
-        sharedPreferences.remove(SharedPreferenceHelper.userDob);
-        sharedPreferences.remove(SharedPreferenceHelper.userAddress);
-        sharedPreferences.remove(SharedPreferenceHelper.userImage);
-        Get.offAllNamed(AppRoute.signInScreen);*/
-        return ApiResponseModel(401, "Unauthorized".tr, response.body);
       }
-      else if (response.statusCode == 404) {
-       /* sharedPreferences.setBool(SharedPreferenceHelper.rememberMeKey, false);
-        sharedPreferences.remove(SharedPreferenceHelper.token);
-        sharedPreferences.remove(SharedPreferenceHelper.accessTokenKey);
-        sharedPreferences.remove(SharedPreferenceHelper.userIdKey);
-        sharedPreferences.remove(SharedPreferenceHelper.accessTokenType);
-        sharedPreferences.remove(SharedPreferenceHelper.userEmailKey);
-        sharedPreferences.remove(SharedPreferenceHelper.userPhoneNumber);
-        sharedPreferences.remove(SharedPreferenceHelper.userFullName);
-        sharedPreferences.remove(SharedPreferenceHelper.userDob);
-        sharedPreferences.remove(SharedPreferenceHelper.userAddress);
-        sharedPreferences.remove(SharedPreferenceHelper.userImage);
-        Get.offAllNamed(AppRoute.signInScreen);*/
-        return ApiResponseModel(401, "Unauthorized".tr, response.body);
-      }else if (response.statusCode == 201) {
+      else if (response.statusCode == 201) {
         return ApiResponseModel(201, 'Success', response.body);
       } else if (response.statusCode == 400) {
         return ApiResponseModel(400, "format error".tr, response.body);

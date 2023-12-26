@@ -17,7 +17,7 @@ class InitialForm1Screen extends StatefulWidget {
 }
 
 class _InitialForm1ScreenState extends State<InitialForm1Screen> {
-
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,118 +45,179 @@ class _InitialForm1ScreenState extends State<InitialForm1Screen> {
           return SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             padding: const EdgeInsetsDirectional.symmetric(vertical: 24,horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomTextField(title: "Name",
-                textEditingController: controller.nameController,
-                hintText: "Name",
-                  hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
-                ),
-                const SizedBox(height: 12,),
-                CustomTextField(title: "Date of Birth",
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomTextField(
+                    title: "Name",
+                  textEditingController: controller.nameController,
+                  textInputAction: TextInputAction.next,
+                  hintText: "Name",
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                    if(value==null||value.toString().isEmpty){
+                      return "The field can not be empty";
+                    }
+                    else{
+                      return null;
+                    }
+                    },
+                  ),
+                  const SizedBox(height: 12,),
+                  CustomTextField(title: "Date of Birth",
+                    textInputAction: TextInputAction.next,
+                  readOnly: true,
+                  hintText: "yyyy/mm/dd",
+                    suffixIcon:  Icon(Icons.calendar_month_rounded,size: 24,color: AppColors.foundationColor,),
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    textEditingController: controller.dobController,
+                    onTap: (){
+                      controller.dateofbirthPicker(context);
+                    },
+                    cursorColor: AppColors.foundationColor,
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 12,),
+                  CustomTextField(title: "Address",
+                    textEditingController: controller.addressController,
+                    textInputAction: TextInputAction.next,
+                  maxLines: 3,
+                  hintText: "Enter full address",
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
 
-                hintText: "yyyy/mm/dd",
-                  suffixIcon:  Icon(Icons.calendar_month_rounded,size: 24,color: AppColors.foundationColor,),
-                  hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
-                  textEditingController: controller.dobController,
-                  onTap: (){
-                    controller.dateofbirthPicker(context);
-                  },
-                  cursorColor: AppColors.foundationColor,
-                ),
-                const SizedBox(height: 12,),
-                CustomTextField(title: "Address",
-                  textEditingController: controller.addressController,
-                maxLines: 3,
-                hintText: "Enter full address",
-                  hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
-                ),
-                const SizedBox(height: 12,),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 12,),
 
-                const CustomText(text: "Phone Number",color: AppColors.foundationGrey,fontSize: 14,fontWeight: FontWeight.w500 ,),
-                const SizedBox(height: 12,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 10),
-                        alignment: Alignment.center,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: AppColors.foundationGreen100
+                  const CustomText(text: "Phone Number",color: AppColors.foundationGrey,fontSize: 14,fontWeight: FontWeight.w500 ,),
+                  const SizedBox(height: 12,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 10),
+                          alignment: Alignment.center,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: AppColors.foundationGreen100
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                            color: AppColors.whiteColor,
                           ),
-                          borderRadius: BorderRadius.circular(8),
-                          color: AppColors.whiteColor,
-                        ),
-                        child: Row(
-                          children: [
-                            Image.asset(AppImages.flag,height: 40,width: 40,),
-                            const SizedBox(width: 10),
-                            Text(
-                              "+1",
-                              style: GoogleFonts.lato(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColors.foundationGrey
-                              ),
-                            )
-                          ],
+                          child: Row(
+                            children: [
+                              Image.asset(AppImages.flag,height: 40,width: 40,),
+                              const SizedBox(width: 10),
+                              Text(
+                                "+1",
+                                style: GoogleFonts.lato(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.foundationGrey
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      flex: 3,
-                      child: TextFormField(
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        controller: controller.phoneNumberController,
-                        keyboardType: TextInputType.number,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: AppColors.whiteColor,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(
-                                color: AppColors.foundationGreen100),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        flex: 3,
+                        child: TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          controller: controller.phoneNumberController,
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.number,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            counterText: "",
+                            filled: true,
+                            fillColor: AppColors.whiteColor,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide: const BorderSide(
+                                  color: AppColors.foundationGreen100),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide: const BorderSide(
+                                  color: AppColors.foundationGreen100),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide: const BorderSide(
+                                  color: AppColors.foundationGreen100,)
+                            ),
+                            hintText: "Phone Number".tr,
+                            hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
                           ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(
-                                color: AppColors.foundationGreen100),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(
-                                color: AppColors.foundationGreen100,)
-                          ),
-                          hintText: "Phone Number".tr,
-                          hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                          maxLength: 10,
+                          validator: (value){
+                            if(value==null||value.toString().isEmpty){
+                              return "The field can not be empty";
+                            }
+
+                            else if(value.length<10){
+                              return "Input valid number";
+                            }
+                            else{
+                              return null;
+                            }
+                          },
                         ),
-                      ),
-                    )
-                  ],
-                ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 12,),
+                  CustomTextField(title: "Email",
+                   textInputAction: TextInputAction.done,
+                    keyboardType: TextInputType.emailAddress,
+                    textEditingController: controller.emailController,
+                    hintText: "Enter your Email",
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else if (!value.contains(RegExp('@'))) {
+                        return "Please enter a valid email";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
+                  ),
+                  const SizedBox(height: 40,),
 
-                const SizedBox(height: 12,),
-                CustomTextField(title: "Email",
-                 textInputAction: TextInputAction.done,
-                  keyboardType: TextInputType.emailAddress,
-                  textEditingController: controller.emailController,
-                  hintText: "Enter your Email",
-                  hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
-                ),
-                const SizedBox(height: 40,),
+                  CustomButton(onTap: (){
+                    if(_formKey.currentState!.validate()){
+                      Get.toNamed(AppRoute.initialForm2);
+                    }
 
-                CustomButton(onTap: (){
-                  Get.toNamed(AppRoute.initialForm2);
-                }, title: "Continue")
-              ],
+                  }, title: "Continue")
+                ],
+              ),
             ),
           );
         }
