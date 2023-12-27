@@ -35,13 +35,13 @@ class ShareScreen extends StatelessWidget {
           children: [
             CustomButton(onTap: ()async{
 
-             await Share.share(subject: "this is app","dfsdfgsafgdfg");
+             await Share.share(subject: "this is app","Apple App link");
 
             },title: 'For iOS',),
            const SizedBox(height: 16,),
       CustomElevatedButton(
         onPressed: () {
-          Share.share("Share this app",subject: "any kind of");
+          Share.share("Share this app",subject: "Android app link");
         },
         titleColor: AppColors.foundationColor,
         titleText: "For Android",

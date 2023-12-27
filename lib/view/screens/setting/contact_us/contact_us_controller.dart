@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dr_booking/core/global/api_url_container.dart';
 import 'package:dr_booking/utils/app_colors.dart';
 import 'package:dr_booking/utils/app_routes.dart';
+import 'package:dr_booking/view/widgets/bottom_nav/custom_bottom_nav_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -43,7 +44,7 @@ class ContactUsController extends GetxController{
     if(response.statusCode== 200){
       debugPrint("============> Response : $responseBody");
       Get.snackbar("Success",message.toString(),backgroundColor: AppColors.foundationColor,duration: const Duration(seconds: 30),colorText: Colors.white);
-      Get.toNamed(AppRoute.homeScreen);
+      Get.to(CustomNavBar());
     }
 
     else{

@@ -1,13 +1,11 @@
 import 'dart:convert';
-
 import 'package:dr_booking/core/global/api_url_container.dart';
-import 'package:dr_booking/utils/app_routes.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../../utils/app_colors.dart';
+import '../../../widgets/bottom_nav/custom_bottom_nav_bar.dart';
 
 class IntakeFormController extends GetxController{
 
@@ -26,7 +24,7 @@ class IntakeFormController extends GetxController{
   List <String> contactby  =  ["Your cell number","Email"];
   int selectedcategory =  0;
   List <String> mailAddWithUser  =  ["Yes","Not a this time"];
-  int selectedIndex = -1;
+  int selectedIndex = 0;
 
   bool isLoading = false;
 
@@ -71,16 +69,18 @@ sendIntakeFormData () async{
    String message = parsedResponse['message'];
 
   if(response.statusCode == 200){
+    // String message = parsedResponse['message'];
     isLoading = true;
     update();
     debugPrint("============> Response : $responseBody");
-    Get.snackbar("success",message.toString(),backgroundColor: AppColors.foundationColor,duration: Duration(seconds: 30),colorText: Colors.white);
-    Get.toNamed(AppRoute.homeScreen);
+    Get.snackbar("Success",message.toString(),backgroundColor: AppColors.foundationColor,duration: Duration(seconds: 10),colorText: Colors.white);
+    Get.to(const CustomNavBar());
   }
-
-  else {
+   else if(response.statusCode == 400) {
+    String message = parsedResponse['errors'];
     Get.snackbar("error",message.toString());
   }
+
    isLoading = false;
    update();
 }
@@ -107,5 +107,4 @@ sendIntakeFormData () async{
       update();
     }
   }
-
 }

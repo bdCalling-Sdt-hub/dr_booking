@@ -36,71 +36,118 @@ class ContactUsScreen extends StatelessWidget {
         builder: (controller) {
           return SingleChildScrollView(
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 24),
-            child: Column(
-              children: [
-                const CustomText(
-                  text: "Contact New Body New Me",
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
-                CustomTextField(title: "Name",
-                  textEditingController: controller.nameController,
-                  hintText: "Your Name",
-                  textInputAction: TextInputAction.next,
-                  hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
-                ),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  const CustomText(
+                    text: "Contact New Body New Me",
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  CustomTextField(title: "Name",
+                    textEditingController: controller.nameController,
+                    hintText: "Your Name",
+                    textInputAction: TextInputAction.next,
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
 
-                const SizedBox(height: 12,),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
+                  ),
 
-                CustomTextField(title: "Email",
-                  hintText: "Your Email",
-                  textInputAction: TextInputAction.next,
-                  textEditingController: controller.emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
-                ),
+                  const SizedBox(height: 12,),
 
-                const SizedBox(height: 12,),
+                  CustomTextField(title: "Email",
+                    hintText: "Your Email",
+                    textInputAction: TextInputAction.next,
+                    textEditingController: controller.emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else if (!value.contains(RegExp('@'))) {
+                        return "Please enter a valid email";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
+                  ),
 
-                CustomTextField(title: "Subject",
-                  hintText: "Write subject",
-                  textEditingController: controller.subjectController,
-                  textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
+                  const SizedBox(height: 12,),
 
-                  maxLines: 3,
-                  hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
-                ),
+                  CustomTextField(title: "Subject",
+                    hintText: "Write subject",
+                    textEditingController: controller.subjectController,
+                    textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.text,
 
-                const SizedBox(height: 12,),
+                    maxLines: 3,
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
+                  ),
 
-                CustomTextField(title: "Your message",
-                  textEditingController: controller.messageController,
-                  hintText: "Enter Your message",
-                  maxLines: 3,
-                  textInputAction: TextInputAction.done,
-                  keyboardType: TextInputType.text,
-                  hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
-                ),
+                  const SizedBox(height: 12,),
 
-                const SizedBox(height: 24,),
+                  CustomTextField(title: "Your message",
+                    textEditingController: controller.messageController,
+                    hintText: "Enter Your message",
+                    maxLines: 3,
+                    textInputAction: TextInputAction.done,
+                    keyboardType: TextInputType.text,
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
 
-                 controller.isLoading ? const CustomElevatedLoadingButton(): CustomButton(onTap: (){
-                  controller.sendContactInfo();
-                },title: 'Send',),
-                const SizedBox(height: 50,),
-                const CustomText(text: "You may also contact us at",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
-                const SizedBox(height: 8,),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.mail,color: AppColors.foundationColor,size: 24,),
-                    SizedBox(width: 8,),
-                    CustomText(text: "example@gmail.com",color: AppColors.foundationColor,fontSize: 16,fontWeight: FontWeight.w400,),
-                  ],
-                )
-              ],
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else if(value.length<5){
+                        return "The message must be 5 letter";
+                      }
 
+                      else{
+                        return null;
+                      }
+                    },
+                  ),
+
+                  const SizedBox(height: 24,),
+
+                   controller.isLoading ? const CustomElevatedLoadingButton(): CustomButton(onTap: (){
+                     if(_formKey.currentState!.validate()){
+                       controller.sendContactInfo();
+                     }
+
+                  },title: 'Send',),
+                  const SizedBox(height: 50,),
+                  const CustomText(text: "You may also contact us at",color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
+                  const SizedBox(height: 8,),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.mail,color: AppColors.foundationColor,size: 24,),
+                      SizedBox(width: 8,),
+                      CustomText(text: "example@gmail.com",color: AppColors.foundationColor,fontSize: 16,fontWeight: FontWeight.w400,),
+                    ],
+                  )
+                ],
+
+              ),
             )
           );
         }

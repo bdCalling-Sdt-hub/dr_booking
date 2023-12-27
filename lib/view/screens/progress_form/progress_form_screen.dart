@@ -1,5 +1,6 @@
 import 'package:dr_booking/utils/app_colors.dart';
 import 'package:dr_booking/utils/app_routes.dart';
+import 'package:dr_booking/view/screens/form/initial_form2_screen.dart';
 import 'package:dr_booking/view/screens/progress_form/progress_controller/progress_controller.dart';
 import 'package:dr_booking/view/widgets/buttons/custom_button.dart';
 import 'package:dr_booking/view/widgets/buttons/custom_elevated_loading_button.dart';
@@ -54,6 +55,15 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textInputAction: TextInputAction.next,
                     textEditingController:controller.nameController ,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
                   ),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Email",
@@ -61,6 +71,17 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textEditingController:controller.emailController,
                     hintText: "Enter your Email",
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else if (!value.contains(RegExp('@'))) {
+                        return "Please enter a valid email";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
                   ),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Change in pharmacy Information",
@@ -68,6 +89,15 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textInputAction: TextInputAction.next,
                     textEditingController:controller.changePharmecyInformation ,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
                   ),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Start Weight (Ibs)",
@@ -76,6 +106,14 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.next,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
                   ),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Current  Weight (Ibs)",
@@ -84,6 +122,14 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textEditingController:controller.currentWeight ,
                     textInputAction: TextInputAction.next,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
                   ),
 
                   const SizedBox(height: 12,),
@@ -93,6 +139,14 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textEditingController:controller.goalWeight,
                     textInputAction: TextInputAction.next,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
                   ),
 
                   const SizedBox(height: 12,),
@@ -104,6 +158,14 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.next,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
                   ),
 
                   const SizedBox(height: 12,),
@@ -113,6 +175,14 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textEditingController:controller.otherPrescribedMedication ,
                     textInputAction: TextInputAction.next,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
                   ),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Do you want a refill for your medication?",
@@ -120,19 +190,47 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textInputAction: TextInputAction.next,
                     textEditingController:controller.refill,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
+
                   ),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Are you experiencing any of these symptoms with your weight loss medications? Check all that apply",
                     hintText: "Type Here",
                     textEditingController:controller.symptomsWithWeightLossMedication ,
                     textInputAction: TextInputAction.next,
-                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
+                  ),
+
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Are you experiencing any of these symptoms with your weight loss medications? Check all that apply",
                     hintText: "Type Here",
                     textEditingController:controller.knowledge ,
                     textInputAction: TextInputAction.next,
-                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
+                  ),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Please enter new pharmacy name and address if there has been a change in your pharmacy information",
                     hintText: "Type Here",
@@ -142,8 +240,23 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Prefarable time",
                     hintText: "Enter your prefarable time (if any)",
+                    inputFormatters: [
+                      TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
+                    ],
                     textEditingController:controller.prefarableTime ,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else if(value.length<5){
+                        return "Time Format 00:00";
+                      }
+
+                      else{
+                        return null;
+                      }
+                    },
                   ),
                   const SizedBox(height: 12,),
                   Row(
@@ -175,6 +288,16 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textEditingController: controller.signature,
                     maxLines: 1,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
+
                   ),
 
                 /* const CustomText(text: "Signature Below",textAlign: TextAlign.start,fontWeight: FontWeight.w500,fontSize: 14,),

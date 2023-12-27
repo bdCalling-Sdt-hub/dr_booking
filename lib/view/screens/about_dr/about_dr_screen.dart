@@ -1,12 +1,13 @@
 import 'package:dr_booking/core/global/api_url_container.dart';
 import 'package:dr_booking/sevice/api_service.dart';
 import 'package:dr_booking/utils/app_colors.dart';
-import 'package:dr_booking/utils/app_images.dart';
 import 'package:dr_booking/view/screens/about_dr/controller.dart';
 import 'package:dr_booking/view/screens/about_dr/repo.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/services.dart';
+import 'dart:math' as math;
 
 class AboutDrScreen extends StatefulWidget {
   const AboutDrScreen({super.key});
@@ -26,7 +27,6 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
     });
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,9 +59,11 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
-                            image: DecorationImage(
+                            image:  DecorationImage(
                                 fit: BoxFit.fill,
-                                image: NetworkImage("${ApiUrlContainer.imageBaseUrl}${controller.aboutModel.data?.image}"))),
+                                image: NetworkImage("${ApiUrlContainer.imageBaseUrl}${controller.aboutModel.data?.image ?? ""}")
+                            )
+                        ),
                       ),
                       const SizedBox(height: 24,),
                       CustomText(
@@ -78,3 +80,6 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
     );
   }
 }
+
+
+

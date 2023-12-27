@@ -5,7 +5,10 @@ import 'package:dr_booking/utils/app_strings.dart';
 import 'package:dr_booking/view/widgets/buttons/custom_elevated_button.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+
+import '../../../utils/app_icons.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -17,15 +20,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text("LOGO"),
-      //   centerTitle: true,
-      //   automaticallyImplyLeading: false,
-      // ),
-      // backgroundColor: Colors.amberAccent,
-
+       backgroundColor: AppColors.bgColor,
       appBar: AppBar(
+        backgroundColor: AppColors.bgColor,
+        toolbarHeight: 120,
+        centerTitle: true,
         automaticallyImplyLeading: false,
+        title: SvgPicture.asset(AppIcons.logo,color: AppColors.foundationColor,),
 
       ),
       body: Padding(
@@ -37,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
              clipBehavior:Clip.none,
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: 8),
+                  padding: const EdgeInsets.only(top: 8),
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       color: AppColors.foundationColor1,
@@ -47,9 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(),
-
-                      SizedBox(),
+                      SizedBox(width:100,),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                            color: AppColors.foundationColor,
                            fontSize: 14,
                            fontWeight: FontWeight.w600,
-                           maxLines: 1,
+                           maxLines: 2,
                            textOverflow: TextOverflow.ellipsis,
                          ),
                        ],
