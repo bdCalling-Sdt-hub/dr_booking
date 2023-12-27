@@ -1,14 +1,11 @@
 import 'dart:convert';
-
 import 'package:dr_booking/core/global/api_url_container.dart';
 import 'package:dr_booking/utils/app_colors.dart';
-import 'package:dr_booking/utils/app_routes.dart';
 import 'package:dr_booking/view/widgets/bottom_nav/custom_bottom_nav_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-
 class ProgressController extends GetxController{
 
   TextEditingController nameController =  TextEditingController();
@@ -24,7 +21,9 @@ class ProgressController extends GetxController{
   TextEditingController symptomsWithWeightLossMedication =  TextEditingController();
   TextEditingController prefarableTime =  TextEditingController();
   TextEditingController knowledge =  TextEditingController();
-   TextEditingController signature =  TextEditingController();
+  TextEditingController signature =  TextEditingController();
+
+   bool checkBox =  false;
 
 
   bool isLoading = false;
@@ -48,7 +47,7 @@ class ProgressController extends GetxController{
       'enterThePharmacyName': enterThePharmacyName.text,
       'prefarableTime': prefarableTime.text,
       'knowledge': knowledge.text,
-      'signature': signature.text
+      'signature': signature.text,
 
     };
     request.fields.addAll(body);
