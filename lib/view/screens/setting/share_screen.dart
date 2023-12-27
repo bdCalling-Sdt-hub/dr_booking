@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 class ShareScreen extends StatelessWidget {
   const ShareScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +36,7 @@ class ShareScreen extends StatelessWidget {
             CustomButton(onTap: ()async{
 
              await Share.share(subject: "this is app","dfsdfgsafgdfg");
+
             },title: 'For iOS',),
            const SizedBox(height: 16,),
       CustomElevatedButton(
