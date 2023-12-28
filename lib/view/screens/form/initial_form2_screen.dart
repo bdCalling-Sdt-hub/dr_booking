@@ -125,7 +125,6 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                               ),
                                const SizedBox(width: 12,),
                                CustomText(top:12,text: controller.mailAddWithUser[index],color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
-
                             ],
                           ),
                         );
@@ -209,6 +208,7 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Preferable time",
                     textInputAction: TextInputAction.done,
+                    keyboardType: TextInputType.number,
                     inputFormatters: [
                       TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
                     ],
@@ -235,11 +235,6 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                   controller.sendIntakeFormData();
                 }
 
-                /*else if(intakeFormController.selectedcategory== -1 || controller.contactby.isEmpty){
-                  print("=========================================>ahjshdfhdhhhjdhjhd");
-
-                  // Get.snackbar("Alert", "Please select contact");
-                }*/
 
               },title: 'Continue',)
                 ],

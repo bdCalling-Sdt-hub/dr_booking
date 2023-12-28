@@ -1,5 +1,4 @@
 import 'package:dr_booking/utils/app_colors.dart';
-import 'package:dr_booking/utils/app_routes.dart';
 import 'package:dr_booking/view/screens/form/initial_form2_screen.dart';
 import 'package:dr_booking/view/screens/progress_form/progress_controller/progress_controller.dart';
 import 'package:dr_booking/view/widgets/buttons/custom_button.dart';
@@ -217,7 +216,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                   ),
 
                   const SizedBox(height: 12,),
-                  CustomTextField(title: "Are you experiencing any of these symptoms with your weight loss medications? Check all that apply",
+                  CustomTextField(title: "How much your feeling now?",
                     hintText: "Type Here",
                     textEditingController:controller.knowledge ,
                     textInputAction: TextInputAction.next,
@@ -240,6 +239,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Prefarable time",
                     hintText: "Enter your prefarable time (if any)",
+                    keyboardType: TextInputType.number,
                     inputFormatters: [
                       TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
                     ],

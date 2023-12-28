@@ -23,7 +23,7 @@ class ProgressController extends GetxController{
   TextEditingController knowledge =  TextEditingController();
   TextEditingController signature =  TextEditingController();
 
-   bool checkBox =  false;
+   // bool checkBox =  false;
 
 
   bool isLoading = false;
