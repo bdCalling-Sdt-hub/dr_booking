@@ -18,7 +18,7 @@ class ProgressFormScreen extends StatefulWidget {
 
 class _ProgressFormScreenState extends State<ProgressFormScreen> {
   final  _formKey = GlobalKey<FormState>();
-   bool valuefirst = false;
+   // bool valuefirst = false;
   @override
   Widget build(BuildContext context) {
     Get.put(ProgressController());
@@ -264,10 +264,10 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                       Checkbox(
                         checkColor: Colors.white,
                         activeColor: AppColors.foundationColor,
-                        value: this.valuefirst,
+                        value: controller.checkBox,
                         onChanged: (bool? value) {
                           setState(() {
-                            this.valuefirst = value!;
+                            controller.checkBox = value!;
                           });
                         },
                       ),
@@ -320,9 +320,17 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
 
                   const SizedBox(height: 40,),
                 controller.isLoading ? const CustomElevatedLoadingButton() : CustomButton(onTap: (){
+
                     if(_formKey.currentState!.validate()){
-                      controller.sendProgressData();
+
+                      if(controller.checkBox){
+                         controller.sendProgressData();
+                      }
+                      else{
+                        Get.snackbar("Failed", "Please check the button",backgroundColor: Colors.redAccent);
+                      }
                     }
+
 
                   },title: 'Continue',)
                 ],

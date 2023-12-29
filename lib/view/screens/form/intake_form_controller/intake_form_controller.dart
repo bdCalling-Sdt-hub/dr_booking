@@ -80,8 +80,8 @@ class IntakeFormController extends GetxController {
           colorText: Colors.white);
       Get.to(const CustomNavBar());
     }
-    else {
-
+    else{
+      Get.snackbar("Alert",message.toString(),backgroundColor: Colors.redAccent,duration: const Duration(seconds: 20),colorText: AppColors.whiteColor);
     }
 
     isLoading = false;

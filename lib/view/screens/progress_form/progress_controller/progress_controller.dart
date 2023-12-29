@@ -23,7 +23,7 @@ class ProgressController extends GetxController{
   TextEditingController knowledge =  TextEditingController();
   TextEditingController signature =  TextEditingController();
 
-   // bool checkBox =  false;
+    bool checkBox =  false;
 
 
   bool isLoading = false;
@@ -47,6 +47,7 @@ class ProgressController extends GetxController{
       'enterThePharmacyName': enterThePharmacyName.text,
       'prefarableTime': prefarableTime.text,
       'knowledge': knowledge.text,
+      'knowledge1': knowledge.toString(),
       'signature': signature.text,
 
     };
@@ -68,7 +69,7 @@ class ProgressController extends GetxController{
       Get.to(const CustomNavBar());
     }
     else{
-      Get.snackbar("Alert",message.toString(),backgroundColor: AppColors.foundationColor);
+      Get.snackbar("Alert",message.toString(),backgroundColor: Colors.redAccent,duration: const Duration(seconds: 20),colorText: AppColors.whiteColor);
     }
     isLoading = false;
     update();

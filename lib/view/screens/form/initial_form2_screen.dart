@@ -85,9 +85,6 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                                   shape: BoxShape.circle,
                                   border: Border.all (color:controller.selectedcategory == index? AppColors.foundationColor: AppColors.foundationGrey,width: 2),
                                 ),
-                              /*  child: controller.selectedcategory == index ? const Center(child: Align(
-                                    alignment: Alignment.center,
-                                    child: Icon(Icons.check_outlined,size: 18,color: AppColors.whiteColor ,))) : const SizedBox(),*/
                               ),
                               const SizedBox(width: 12,),
                               CustomText(top:12,text: controller.contactby[index],color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
