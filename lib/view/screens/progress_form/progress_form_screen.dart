@@ -168,7 +168,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                   ),
 
                   const SizedBox(height: 12,),
-                  CustomTextField(title: "List all other prescribed medications (if any)",
+                  CustomTextField(title: "List all other prescribed medications",
                     hintText: "Type Here",
                     keyboardType: TextInputType.text,
                     textEditingController:controller.otherPrescribedMedication ,
@@ -216,8 +216,8 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                   ),
 
                   const SizedBox(height: 12,),
-                  CustomTextField(title: "How much your feeling now?",
-                    hintText: "Type Here",
+                  CustomTextField(title: "How are you feeling now now??",
+                    hintText: "Write something Here",
                     textEditingController:controller.knowledge ,
                     textInputAction: TextInputAction.next,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
@@ -238,7 +238,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Prefarable time",
-                    hintText: "Enter your prefarable time (if any)",
+                    hintText: "Enter your prefarable time",
                     keyboardType: TextInputType.number,
                     inputFormatters: [
                       TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
@@ -272,7 +272,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                         },
                       ),
                       const Flexible(
-                        child: CustomText(text: "This information is current and true to the\nbest of my knowledge.",
+                        child: CustomText(text: "This information is correct and true to the\nbest of my knowledge.",
                           textAlign: TextAlign.start,
                           maxLines: 2,
                           textOverflow: TextOverflow.ellipsis,
@@ -300,24 +300,6 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
 
                   ),
 
-                /* const CustomText(text: "Signature Below",textAlign: TextAlign.start,fontWeight: FontWeight.w500,fontSize: 14,),
-                  const SizedBox(height: 8,),
-                  Container(
-                    height: 100,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.foundationGreen100,width: 1),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child:  const SfSignaturePad(
-                      minimumStrokeWidth: 1,
-                      maximumStrokeWidth: 3,
-                      strokeColor: Colors.black87,
-                      backgroundColor: Colors.white,
-                    ),
-                  ),*/
-
-
                   const SizedBox(height: 40,),
                 controller.isLoading ? const CustomElevatedLoadingButton() : CustomButton(onTap: (){
 
@@ -327,11 +309,10 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                          controller.sendProgressData();
                       }
                       else{
-                        Get.snackbar("Failed", "Please check the button",backgroundColor: Colors.redAccent);
+                        Get.snackbar("Alert", "if information is correct and true,Please check upper the button",
+                        backgroundColor: Colors.redAccent,colorText: AppColors.whiteColor,duration: const Duration(seconds: 15));
                       }
                     }
-
-
                   },title: 'Continue',)
                 ],
               ),

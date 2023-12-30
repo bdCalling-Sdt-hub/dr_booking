@@ -69,7 +69,7 @@ class ProgressController extends GetxController{
       Get.to(const CustomNavBar());
     }
     else{
-      Get.snackbar("Alert",message.toString(),backgroundColor: Colors.redAccent,duration: const Duration(seconds: 20),colorText: AppColors.whiteColor);
+      Get.snackbar("Alert",message.toString(),backgroundColor: Colors.redAccent,duration: const Duration(seconds: 15),colorText: AppColors.whiteColor);
     }
     isLoading = false;
     update();

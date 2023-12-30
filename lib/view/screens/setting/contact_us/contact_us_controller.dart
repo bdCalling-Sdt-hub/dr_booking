@@ -44,7 +44,7 @@ class ContactUsController extends GetxController{
     if(response.statusCode== 200){
       debugPrint("============> Response : $responseBody");
       Get.snackbar("Success",message.toString(),backgroundColor: AppColors.foundationColor,duration: const Duration(seconds: 30),colorText: Colors.white);
-      Get.to(CustomNavBar());
+      Get.to(const CustomNavBar());
     }
 
     else{

@@ -185,7 +185,7 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                   ),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Present Medications",
-                    hintText: "Describe your present medications (if any)",
+                    hintText: "Describe your present medications",
                     textEditingController: controller.presentMedicationController,
                     maxLines: 3,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
@@ -210,7 +210,7 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                       TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
                     ],
                     textEditingController: controller.prefareableTimeController,
-                    hintText: "Enter your preferable time (if any)",
+                    hintText: "Enter your preferable time",
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
                     validator: (value){
                       if(value==null||value.toString().isEmpty){
