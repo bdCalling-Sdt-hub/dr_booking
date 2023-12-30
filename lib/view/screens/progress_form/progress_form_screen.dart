@@ -8,6 +8,7 @@ import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 class ProgressFormScreen extends StatefulWidget {
   const ProgressFormScreen({super.key});
@@ -261,6 +262,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                   const SizedBox(height: 12,),
                   Row(
                     children: [
+
                       Checkbox(
                         checkColor: Colors.white,
                         activeColor: AppColors.foundationColor,

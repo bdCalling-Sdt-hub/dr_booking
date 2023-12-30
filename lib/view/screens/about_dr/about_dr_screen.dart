@@ -71,7 +71,8 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xff5C5C5C),
-                          text: controller.aboutDr)
+                          text: controller.aboutDr),
+
                     ],
                   ),
                 );
