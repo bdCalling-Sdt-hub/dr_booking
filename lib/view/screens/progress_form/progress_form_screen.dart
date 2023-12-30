@@ -309,7 +309,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                          controller.sendProgressData();
                       }
                       else{
-                        Get.snackbar("Alert", "if information is correct and true,Please check upper the button",
+                        Get.snackbar("Alert", "if all information is correct and true,Please check upper the button",
                         backgroundColor: Colors.redAccent,colorText: AppColors.whiteColor,duration: const Duration(seconds: 15));
                       }
                     }

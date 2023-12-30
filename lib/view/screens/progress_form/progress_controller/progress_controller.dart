@@ -47,9 +47,8 @@ class ProgressController extends GetxController{
       'enterThePharmacyName': enterThePharmacyName.text,
       'prefarableTime': prefarableTime.text,
       'knowledge': knowledge.text,
-      'knowledge1': knowledge.toString(),
+      'checkBox': checkBox.toString(),
       'signature': signature.text,
-
     };
     request.fields.addAll(body);
 
@@ -64,14 +63,35 @@ class ProgressController extends GetxController{
     String message = parsedResponse['message'];
 
     if(response.statusCode==200){
+      removeData();
       debugPrint("============> Response : $responseBody");
       Get.snackbar("Success",message.toString(),backgroundColor: AppColors.foundationColor,duration: const Duration(seconds: 10),colorText: Colors.white,);
       Get.to(const CustomNavBar());
     }
     else{
       Get.snackbar("Alert",message.toString(),backgroundColor: Colors.redAccent,duration: const Duration(seconds: 15),colorText: AppColors.whiteColor);
+      errorClear();
     }
     isLoading = false;
     update();
+  }
+  errorClear (){
+    emailController.text="";
+  }
+  removeData(){
+    nameController.text ="";
+    emailController.text="";
+    changePharmecyInformation.text = '';
+    startWeight.text = "";
+    currentWeight.text = "";
+    goalWeight.text = "";
+    bloodPressure.text = "";
+    otherPrescribedMedication.text = "";
+    refill.text = "";
+    symptomsWithWeightLossMedication.text = "";
+    knowledge.text = "";
+    signature.text = "";
+    enterThePharmacyName.text = "";
+    prefarableTime.text = "";
   }
 }

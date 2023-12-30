@@ -70,18 +70,23 @@ class IntakeFormController extends GetxController {
     String message = parsedResponse['message'];
 
     if (response.statusCode == 200) {
+      removeData();
       // String message = parsedResponse['message'];
       /*  isLoading = true;
     update();*/
       debugPrint("============> Response : $responseBody");
       Get.snackbar("Success", message.toString(),
           backgroundColor: AppColors.foundationColor,
-          duration: Duration(seconds: 10),
+          duration: const Duration(seconds: 10),
           colorText: Colors.white);
+
       Get.to(const CustomNavBar());
+
+
     }
     else{
-      Get.snackbar("Alert",message.toString(),backgroundColor: Colors.redAccent,duration: const Duration(seconds: 20),colorText: AppColors.whiteColor);
+      Get.snackbar("Alert",message.toString(),backgroundColor: Colors.redAccent,duration: const Duration(seconds: 10),colorText: AppColors.whiteColor);
+      removeData();
     }
 
     isLoading = false;
@@ -108,5 +113,19 @@ class IntakeFormController extends GetxController {
       dobController.text = "${picked.year}/${picked.month}/${picked.day}";
       update();
     }
+  }
+
+  removeData(){
+    nameController.text =  "";
+    dobController.text="";
+    addressController.text = "";
+    phoneNumberController.text = "";
+    occupationController.text = "";
+    reasonVisitController.text = "";
+    allergiesdesriptionController.text = "";
+    presentMedicationController.text= "";
+    prefareableTimeController.text = "";
+
+
   }
 }

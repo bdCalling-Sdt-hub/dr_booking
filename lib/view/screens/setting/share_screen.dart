@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 class ShareScreen extends StatelessWidget {
   const ShareScreen({super.key});
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
