@@ -1,6 +1,6 @@
 class ApiUrlContainer{
-//local n url
-//   static const  String baseUrl  =  "http://161.35.33.162:8000/api";
+//local url
+//   static const  String baseUrl  =  "http://192.168.10.13:8000/api";
 //   static const  String imageBaseUrl  =  "http://192.168.10.13:8000";
   ///live url
   static const  String baseUrl  =  "http://161.35.33.162/api";

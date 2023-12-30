@@ -55,7 +55,7 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
                   child: Column(
                     children: [
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.3,
+                        height: MediaQuery.of(context).size.height * 0.4,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),

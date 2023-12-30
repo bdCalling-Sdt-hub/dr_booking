@@ -237,8 +237,8 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textEditingController:controller.enterThePharmacyName ,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
                   const SizedBox(height: 12,),
-                  CustomTextField(title: "Prefarable time",
-                    hintText: "Enter your prefarable time",
+                  CustomTextField(title: "Preferable time",
+                    hintText: "Enter your preferable time",
                     keyboardType: TextInputType.number,
                     inputFormatters: [
                       TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
