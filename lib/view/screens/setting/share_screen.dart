@@ -36,13 +36,13 @@ class ShareScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomButton(onTap: ()async{
-             await Share.share(subject: "",'https://apps.apple.com/app/your-app-id');
+             await Share.share(subject: "",'https://apps.apple.com/app/com.drbooking.newbodynewme');
 
             },title: 'For iOS',),
            const SizedBox(height: 16,),
       CustomElevatedButton(
         onPressed: () {
-          Share.share(subject: "","https://play.google.com/store/apps/com.residco.residpro");
+          Share.share(subject: "","https://play.google.com/store/apps/com.drbooking.newbodynewme");
         },
         titleColor: AppColors.foundationColor,
         titleText: "For Android",

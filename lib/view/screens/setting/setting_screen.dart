@@ -19,56 +19,59 @@ class _SettingScreenState extends State<SettingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.bgColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
+    return SafeArea(
+      top: false,
+      child: Scaffold(
         backgroundColor: AppColors.bgColor,
-        centerTitle: true,
-        title: CustomText(
-          text: "Setting".toUpperCase(),
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: AppColors.bgColor,
+          centerTitle: true,
+          title: CustomText(
+            text: "Setting".toUpperCase(),
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+          ),
         ),
-      ),
-      body:  SingleChildScrollView(
-        padding:  const EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              children: List.generate(methodName.length, (index){
-                return  GestureDetector(
-                  onTap: (){
-                    setState(() {
-                      index == 0 ? Get.toNamed(AppRoute.termCondition) :index==1? Get.toNamed(AppRoute.privacyPolicy) : index == 2 ?Get.toNamed(AppRoute.aboutUs): index == 3? Get.toNamed(AppRoute.contactUsScreen) : Get.toNamed(AppRoute.shareScreen) ;
-                    });
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.only(top: 12),
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                        color: AppColors.whiteColor,
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: AppColors.foundationColor,width: 1)
+        body:  SingleChildScrollView(
+          padding:  const EdgeInsetsDirectional.symmetric(horizontal: 20,vertical: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                children: List.generate(methodName.length, (index){
+                  return  GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        index == 0 ? Get.toNamed(AppRoute.termCondition) :index==1? Get.toNamed(AppRoute.privacyPolicy) : index == 2 ?Get.toNamed(AppRoute.aboutUs): index == 3? Get.toNamed(AppRoute.contactUsScreen) : Get.toNamed(AppRoute.shareScreen) ;
+                      });
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(top: 12),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                          color: AppColors.whiteColor,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: AppColors.foundationColor,width: 1)
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          CustomText(
+                            text: methodName[index],
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,),
+                          
+                          const Icon(Icons.arrow_forward_ios_outlined,size: 20,)
+      
+                        ],
+                      ),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CustomText(
-                          text: methodName[index],
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,),
-                        
-                        const Icon(Icons.arrow_forward_ios_outlined,size: 20,)
-
-                      ],
-                    ),
-                  ),
-                );
-              }),
-            ),
-          ],
+                  );
+                }),
+              ),
+            ],
+          ),
         ),
       ),
     );

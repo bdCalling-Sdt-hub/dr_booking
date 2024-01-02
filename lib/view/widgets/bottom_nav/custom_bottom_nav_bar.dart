@@ -5,7 +5,6 @@ import 'package:dr_booking/view/screens/home/home_screen.dart';
 import 'package:dr_booking/view/screens/setting/setting_screen.dart';
 import 'package:dr_booking/view/widgets/custom_image/custom_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({super.key});
@@ -46,9 +45,9 @@ class _CustomNavBarState extends State<CustomNavBar> {
     ];
 
     return SafeArea(
-      top: true,
+      top: false,
       child: Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColors.bgColor,
         extendBody: true,
         bottomNavigationBar: Container(
           height: 100,

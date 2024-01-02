@@ -7,7 +7,6 @@ import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
-import 'dart:math' as math;
 
 class AboutDrScreen extends StatefulWidget {
   const AboutDrScreen({super.key});
@@ -54,14 +53,19 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
                       horizontal: 20, vertical: 24),
                   child: Column(
                     children: [
-                      Container(
+                      controller.image.isEmpty
+                          ? const Center(
+                        child: CircularProgressIndicator(
+                          color: AppColors.foundationColor,
+                        ),
+                      ): Container(
                         height: MediaQuery.of(context).size.height * 0.4,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                             image:  DecorationImage(
                                 fit: BoxFit.fill,
-                                image: NetworkImage("${ApiUrlContainer.imageBaseUrl}${controller.aboutModel.data?.image ?? ""}")
+                                image: NetworkImage("${ApiUrlContainer.imageBaseUrl}${controller.image?? ""}")
                             )
                         ),
                       ),

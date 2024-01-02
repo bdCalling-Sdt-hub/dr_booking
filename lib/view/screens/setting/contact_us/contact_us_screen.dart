@@ -142,7 +142,7 @@ class ContactUsScreen extends StatelessWidget {
                     children: [
                       Icon(Icons.mail,color: AppColors.foundationColor,size: 24,),
                       SizedBox(width: 8,),
-                      CustomText(text: "example@gmail.com",color: AppColors.foundationColor,fontSize: 16,fontWeight: FontWeight.w400,),
+                      CustomText(text: "kan01605@yahoo.com",color: AppColors.foundationColor,fontSize: 16,fontWeight: FontWeight.w400,),
                     ],
                   )
                 ],

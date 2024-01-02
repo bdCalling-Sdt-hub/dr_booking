@@ -9,7 +9,7 @@ import 'repo.dart';
 class AboutController extends GetxController {
   AboutRepo aboutRepo;
   AboutController({required this.aboutRepo});
-
+ String image = "";
   bool isLoading = false;
   AboutModel aboutModel = AboutModel();
   String aboutDr= "";
@@ -21,6 +21,7 @@ class AboutController extends GetxController {
     if (responseModel.statusCode == 200) {
       aboutModel = AboutModel.fromJson(jsonDecode(responseModel.responseJson));
       aboutDr = aboutModel.data?.description ?? "";
+      image = aboutModel.data!.image.toString();
       isLoading = false;
       update();
     } else {
