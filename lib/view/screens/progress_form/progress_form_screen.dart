@@ -238,50 +238,28 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textEditingController:controller.enterThePharmacyName ,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
                   const SizedBox(height: 12,),
-                  CustomTextField(title: "Preferable time",
-                    hintText: "Enter your preferable time",
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
-                    ],
+                  CustomTextField(title: "When can we contact you?",
+                    hintText: "Type Date and time if you want a call back from doctor",
+                    keyboardType: TextInputType.text,
+                    // inputFormatters: [
+                    //   TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
+                    // ],
                     textEditingController:controller.prefarableTime ,
-                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 12,),
                     validator: (value){
                       if(value==null||value.toString().isEmpty){
                         return "The field can not be empty";
                       }
-                      else if(value.length<5){
-                        return "Time Format 00:00";
-                      }
+                      // else if(value.length<5){
+                      //   return "Time Format 00:00";
+                      // }
 
                       else{
                         return null;
                       }
                     },
                   ),
-                  const SizedBox(height: 12,),
-                  Row(
-                    children: [
 
-                      Checkbox(
-                        checkColor: Colors.white,
-                        activeColor: AppColors.foundationColor,
-                        value: controller.checkBox,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            controller.checkBox = value!;
-                          });
-                        },
-                      ),
-                      const Flexible(
-                        child: CustomText(text: "This information is correct and true to the\nbest of my knowledge.",
-                          textAlign: TextAlign.start,
-                          maxLines: 2,
-                          textOverflow: TextOverflow.ellipsis,
-                          color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
-                      ),
-                    ],
-                  ),
                   const SizedBox(height: 12,),
 
                   CustomTextField(title: "Name",
@@ -301,7 +279,29 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     },
 
                   ),
+                  const SizedBox(height: 12,),
+                  Row(
+                    children: [
 
+                      Checkbox(
+                        checkColor: Colors.white,
+                        activeColor: AppColors.foundationColor,
+                        value: controller.checkBox,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            controller.checkBox = value!;
+                          });
+                        },
+                      ),
+                      const Flexible(
+                        child: CustomText(text: "I confirm all information filled in this form to be accurate and not misleading  in any way",
+                          textAlign: TextAlign.start,
+                          maxLines: 3,
+                          textOverflow: TextOverflow.ellipsis,
+                          color: AppColors.foundationGrey,fontSize: 16,fontWeight: FontWeight.w400,),
+                      ),
+                    ],
+                  ),
                   const SizedBox(height: 40,),
                 controller.isLoading ? const CustomElevatedLoadingButton() : CustomButton(onTap: (){
 

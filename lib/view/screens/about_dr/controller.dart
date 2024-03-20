@@ -21,7 +21,7 @@ class AboutController extends GetxController {
     if (responseModel.statusCode == 200) {
       aboutModel = AboutModel.fromJson(jsonDecode(responseModel.responseJson));
       aboutDr = aboutModel.data?.description ?? "";
-      image = aboutModel.data!.image.toString();
+      image = aboutModel.data?.image.toString() ?? "";
       isLoading = false;
       update();
     } else {

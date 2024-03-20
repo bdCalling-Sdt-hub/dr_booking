@@ -138,9 +138,9 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                         return "The field can not be empty";
                       }
 
-                      else if(value.length<5){
-                        return "Please give minimum 5 character";
-                      }
+                      // else if(value.length<5){
+                      //   return "Please give minimum 5 character";
+                      // }
                       else{
                         return null;
                       }
@@ -157,9 +157,9 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                         return "The field can not be empty";
                       }
 
-                      else if(value.length<5){
-                        return "Please give minimum 5 character";
-                      }
+                      // else if(value.length<5){
+                      //   return "Please give minimum 5 character";
+                      // }
                       else{
                         return null;
                       }
@@ -175,9 +175,9 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                       if(value==null||value.toString().isEmpty){
                         return "The field can not be empty";
                       }
-                      else if(value.length<5){
-                        return "Please give minimum 5 character";
-                      }
+                      // else if(value.length<5){
+                      //   return "Please give minimum 5 character";
+                      // }
                       else{
                         return null;
                       }
@@ -186,6 +186,7 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Present Medications",
                     hintText: "Describe your present medications",
+
                     textEditingController: controller.presentMedicationController,
                     maxLines: 3,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
@@ -194,32 +195,38 @@ class _InitialForm2ScreenState extends State<InitialForm2Screen> {
                       if(value==null||value.toString().isEmpty){
                         return "The field can not be empty";
                       }
-                      else if(value.length<5){
-                        return "Please give minimum 5 character";
-                      }
+                      // else if(value.length<5){
+                      //   return "Please give minimum 5 character";
+                      // }
                       else{
                         return null;
                       }
                     },
                   ),
                   const SizedBox(height: 12,),
-                  CustomTextField(title: "Preferable time",
+                  CustomTextField(title: "When can we contact you?",
                     textInputAction: TextInputAction.done,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
-                    ],
+                    keyboardType: TextInputType.text,
+                    // inputFormatters: [
+                    //   TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
+                    // ],
                     textEditingController: controller.prefareableTimeController,
-                    hintText: "Enter your preferable time",
-                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+                    hintText: 'Type Date and time if you want a call back from doctor',
+                    hintStyle: GoogleFonts.lato(
+
+                        color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 12,
+
+
+
+                    ),
                     validator: (value){
                       if(value==null||value.toString().isEmpty){
                         return "The field can not be empty";
                       }
 
-                      else if(value.length<5){
-                        return "input 00:00";
-                      }
+                      // else if(value.length<5){
+                      //   return "input 00:00";
+                      // }
                       else{
                         return null;
                       }

@@ -4,7 +4,9 @@ import 'package:dr_booking/utils/app_routes.dart';
 import 'package:dr_booking/utils/app_strings.dart';
 import 'package:dr_booking/view/widgets/buttons/custom_elevated_button.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -51,44 +53,48 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        SizedBox(width:100,),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                         children: [
-                           CustomText(
-                             text: AppStrings.title,
-                             color: AppColors.foundationGrey,
-                             fontSize: 14,
-                             fontWeight: FontWeight.w400,
-                             textAlign: TextAlign.start,
-                           ),
-                           CustomText(
-                             textAlign: TextAlign.start,
-                             bottom: 12,
-                             text: AppStrings.subTitle,
-                             color: AppColors.foundationGrey,
-                             fontSize: 20,
-                             fontWeight: FontWeight.w500,
-                           ),
-                           CustomText(
-                             bottom: 12,
-                             textAlign: TextAlign.start,
-                             text: AppStrings.subTitle1,
-                             color: AppColors.foundationColor,
-                             fontSize: 14,
-                             fontWeight: FontWeight.w600,
-                             maxLines: 2,
-                             textOverflow: TextOverflow.ellipsis,
-                           ),
-                         ],
+                        SizedBox(width:120,),
+                        Flexible(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                           children: [
+                             CustomText(
+                               text: "Looking for medically supervised weight Loss",
+                               color: AppColors.foundationGrey,
+                               fontSize: 14,
+                               maxLines: 2,
+                               fontWeight: FontWeight.w400,
+                               textAlign: TextAlign.start,
+                             ),
+                             CustomText(
+                               textAlign: TextAlign.start,
+                               bottom: 12,
+                               text: "Specialist\nDoctor?",
+                               color: AppColors.foundationGrey,
+                               fontSize: 20,
+                               maxLines: 2,
+                               fontWeight: FontWeight.w500,
+                             ),
+                             CustomText(
+                               bottom: 12,
+                               textAlign: TextAlign.start,
+                               text: AppStrings.subTitle1,
+                               color: AppColors.foundationColor,
+                               fontSize: 14,
+                               fontWeight: FontWeight.w600,
+                               maxLines: 2,
+                               textOverflow: TextOverflow.ellipsis,
+                             ),
+                           ],
+                          ),
                         ),
                         SizedBox(),
                       ],
                     ),
                   ),
                   Positioned(
-                    top: -20,
+                    top: -30,
                     left: 0,
                     bottom: 0,
                     child: SizedBox(

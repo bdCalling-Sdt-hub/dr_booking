@@ -97,6 +97,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           height: 12,
         ),
         TextFormField(
+
           maxLength: widget.maxLength,
           inputFormatters: widget.inputFormatters,
           autovalidateMode: AutovalidateMode.onUserInteraction,

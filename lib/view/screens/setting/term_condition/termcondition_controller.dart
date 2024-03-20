@@ -22,7 +22,7 @@ class TermConditionController extends GetxController {
     ApiResponseModel responseModel = await termConditionRepo.responseTermConditionData();
     if (responseModel.statusCode == 200) {
       termPolicyModel = TermPolicyModel.fromJson(jsonDecode(responseModel.responseJson));
-      termCondition = termPolicyModel.data!.description.toString();
+      termCondition = termPolicyModel.data?.description.toString() ?? "";
       isLoading = false;
       update();
     } else {

@@ -15,7 +15,7 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
 
-  List<String> methodName =  ["Terms & Condition","Privacy Policy","About Us","Contact Us"," Share App"];
+  List<String> methodName =  ["Terms & Condition for new body new me","Privacy Policy for new body new me","About for new body new me ","Contact Us"," Share App"];
 
   @override
   Widget build(BuildContext context) {

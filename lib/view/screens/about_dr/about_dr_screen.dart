@@ -6,7 +6,6 @@ import 'package:dr_booking/view/screens/about_dr/repo.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter/services.dart';
 
 class AboutDrScreen extends StatefulWidget {
   const AboutDrScreen({super.key});
@@ -32,12 +31,14 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
       child: Scaffold(
         backgroundColor: AppColors.bgColor,
         appBar: AppBar(
+          toolbarHeight: 80,
           automaticallyImplyLeading: false,
           backgroundColor: AppColors.bgColor,
           centerTitle: true,
-          title: CustomText(
-            text: "About New Body New Me".toUpperCase(),
+          title: const CustomText(
+            text: "Kwesi Ntiforo MD welcomes New Body New Me",
             fontSize: 18,
+            maxLines: 2,
             fontWeight: FontWeight.w500,
           ),
         ),
