@@ -33,7 +33,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
         backgroundColor: AppColors.bgColor,
         centerTitle: true,
         title: CustomText(
-          text: "About Us".toUpperCase(),
+          text: "About for new body new me ",
           fontSize: 18,
           fontWeight: FontWeight.w500,
         ),
@@ -46,7 +46,19 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
             )),
       ),
       body: GetBuilder<AboutUsController>(builder: (controller) {
-        return  controller.isLoading?const Center(child: CircularProgressIndicator(color: AppColors.foundationColor,),):SingleChildScrollView(
+        return  controller.isLoading?const Center(child: CircularProgressIndicator(color: AppColors.foundationColor,),)
+
+            :controller.about.isEmpty || controller.about ==null? const Center(
+          child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomText(text: "No Data found",textAlign: TextAlign.center,fontSize: 24,color: AppColors.foundationColor,)
+            ],
+          ),
+        ):
+
+        SingleChildScrollView(
           padding: const EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 24),
           child:  Column(
             children: [

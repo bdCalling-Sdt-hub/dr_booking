@@ -30,8 +30,9 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         centerTitle: true,
-        title: CustomText(
-          text: "Privacy Policy".toUpperCase(),
+        title: const CustomText(
+          text: "Privacy Policy for new body new me",
+          maxLines: 2,
           fontSize: 18,
           fontWeight: FontWeight.w500,
         ),
@@ -45,8 +46,17 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
       ),
       body: GetBuilder<PrivacyController>(
         builder: (controller) {
-          return  controller.isLoading?const Center(child: CircularProgressIndicator(color: AppColors.foundationColor,),):SingleChildScrollView(
-            padding: EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 24),
+          return  controller.isLoading?const Center(child: CircularProgressIndicator(color: AppColors.foundationColor,),):
+          controller.privacyData.isEmpty || controller.privacyData ==null? const Center(
+            child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomText(text: "No Data found",textAlign: TextAlign.center,fontSize: 24,color: AppColors.foundationColor,)
+              ],
+            ),
+          ):SingleChildScrollView(
+            padding: const EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 24),
             child: Column(
               children: [
                 CustomText(

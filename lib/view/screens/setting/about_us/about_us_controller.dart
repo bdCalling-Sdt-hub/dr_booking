@@ -21,7 +21,7 @@ class AboutUsController extends GetxController {
     ApiResponseModel responseModel = await aboutRepo.responseAboutUsData();
     if (responseModel.statusCode == 200) {
       aboutUsModel = AboutUsModel.fromJson(jsonDecode(responseModel.responseJson));
-      about = aboutUsModel.data!.description?? "";
+      about = aboutUsModel.data?.description ?? "";
       isLoading = false;
       update();
     } else {

@@ -49,7 +49,15 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
                     color: AppColors.foundationColor,
                   ),
                 )
-              : SingleChildScrollView(
+              : controller.aboutDr.isEmpty || controller.aboutDr ==null? const Center(
+            child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomText(text: "No Data found",textAlign: TextAlign.center,fontSize: 24,color: AppColors.foundationColor,)
+              ],
+            ),
+          ):SingleChildScrollView(
                   padding: const EdgeInsetsDirectional.symmetric(
                       horizontal: 20, vertical: 24),
                   child: Column(

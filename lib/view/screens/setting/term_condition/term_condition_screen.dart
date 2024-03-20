@@ -33,8 +33,10 @@ class _TemrConditionsScreenState extends State<TemrConditionsScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         centerTitle: true,
+        toolbarHeight: 100,
         title: CustomText(
-          text: "Terms & Conditions".toUpperCase(),
+          text: "Terms & Conditions for new body new me",
+          maxLines: 2,
           fontSize: 18,
           fontWeight: FontWeight.w500,
         ),
