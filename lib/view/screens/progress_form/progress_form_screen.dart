@@ -101,7 +101,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                   ),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Start Weight (Ibs)",
-                    hintText: "start weight",
+                    hintText: "Start Weight",
                     textEditingController:controller.startWeight ,
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.next,
@@ -117,7 +117,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                   ),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Current  Weight (Ibs)",
-                    hintText: "Current weight",
+                    hintText: "Current Weight",
                     keyboardType: TextInputType.number,
                     textEditingController:controller.currentWeight ,
                     textInputAction: TextInputAction.next,
@@ -218,7 +218,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
 
                   const SizedBox(height: 12,),
                   CustomTextField(title: "Any message for the Doctor",
-                    hintText: "Write something Here",
+                    hintText: "Write Something Here",
                     textEditingController:controller.knowledge ,
                     textInputAction: TextInputAction.next,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
@@ -239,7 +239,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
                   const SizedBox(height: 12,),
                   CustomTextField(title: "When can we contact you?",
-                    hintText: "Type Date and time if you want a call back from doctor",
+                    hintText: "Date and time if you want a call back from me",
                     keyboardType: TextInputType.text,
                     // inputFormatters: [
                     //   TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
@@ -258,26 +258,6 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                         return null;
                       }
                     },
-                  ),
-
-                  const SizedBox(height: 12,),
-
-                  CustomTextField(title: "Name",
-                    hintText: "Enter Your Name",
-                    textInputAction: TextInputAction.done,
-                    textEditingController: controller.signature,
-                    maxLines: 1,
-                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
-
-                    validator: (value){
-                      if(value==null||value.toString().isEmpty){
-                        return "The field can not be empty";
-                      }
-                      else{
-                        return null;
-                      }
-                    },
-
                   ),
                   const SizedBox(height: 12,),
                   Row(
@@ -302,6 +282,26 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 12,),
+
+                  CustomTextField(title: "Name",
+                    hintText: "Enter Your Name",
+                    textInputAction: TextInputAction.done,
+                    textEditingController: controller.signature,
+                    maxLines: 1,
+                    hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),
+
+                    validator: (value){
+                      if(value==null||value.toString().isEmpty){
+                        return "The field can not be empty";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
+
+                  ),
+
                   const SizedBox(height: 40,),
                 controller.isLoading ? const CustomElevatedLoadingButton() : CustomButton(onTap: (){
 

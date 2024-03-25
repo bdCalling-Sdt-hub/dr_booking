@@ -25,7 +25,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
   @override
   Widget build(BuildContext context) {
     List<Widget> screens = <Widget>[
-      const HomeScreen(),
+        HomeScreen(),
       const AboutDrScreen(),
       const SettingScreen(),
     ];
@@ -51,6 +51,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
         extendBody: true,
         bottomNavigationBar: Container(
           height: 100,
+          width: 200,
           alignment: Alignment.bottomCenter,
           padding: const EdgeInsets.only(top: 30),
           decoration: const BoxDecoration(

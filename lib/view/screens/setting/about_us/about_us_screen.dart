@@ -32,7 +32,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         centerTitle: true,
-        title: CustomText(
+        title: const CustomText(
           text: "About for new body new me ",
           fontSize: 18,
           fontWeight: FontWeight.w500,

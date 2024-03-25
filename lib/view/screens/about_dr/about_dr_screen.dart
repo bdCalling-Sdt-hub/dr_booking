@@ -10,6 +10,8 @@ import 'package:get/get.dart';
 class AboutDrScreen extends StatefulWidget {
   const AboutDrScreen({super.key});
 
+
+
   @override
   State<AboutDrScreen> createState() => _AboutDrScreenState();
 }
@@ -36,7 +38,7 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
           backgroundColor: AppColors.bgColor,
           centerTitle: true,
           title: const CustomText(
-            text: "Kwesi Ntiforo MD welcomes New Body New Me",
+            text: "Online medically supervised weight loss clinic",
             fontSize: 18,
             maxLines: 2,
             fontWeight: FontWeight.w500,

@@ -1,9 +1,10 @@
 import 'package:dr_booking/utils/app_colors.dart';
 import 'package:dr_booking/utils/app_routes.dart';
-import 'package:dr_booking/view/screens/home/home_screen.dart';
-import 'package:dr_booking/view/widgets/buttons/custom_button.dart';
+
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
 
-  List<String> methodName =  ["Terms & Condition for new body new me","Privacy Policy for new body new me","About for new body new me ","Contact Us"," Share App"];
+  List<String> methodName =  ["Terms & Condition for New Body New Me","Privacy Policy for New Body New Me","About for New Body New Me","Contact Us"," Share App"];
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +58,13 @@ class _SettingScreenState extends State<SettingScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          CustomText(
-                            text: methodName[index],
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,),
+                          Flexible(
+                            child: CustomText(
+                              text: methodName[index],
+                              textOverflow: TextOverflow.ellipsis,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400,),
+                          ),
                           
                           const Icon(Icons.arrow_forward_ios_outlined,size: 20,)
       

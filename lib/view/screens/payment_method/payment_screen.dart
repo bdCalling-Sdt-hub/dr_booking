@@ -147,7 +147,7 @@ late TextEditingController year = TextEditingController();
 
                       const SizedBox(height: 20,),
                       CustomButton(onTap: (){
-                        Get.to(const CustomNavBar());
+                      //  Get.to(const CustomNavBar());
                       },title: 'Back to Home',)
 
                     ],

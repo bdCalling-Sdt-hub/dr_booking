@@ -36,13 +36,13 @@ class ShareScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomButton(onTap: ()async{
-             await Share.share(subject: "",'https://apps.apple.com/app/com.drbooking.newbodynewme');
+             await Share.share('https://apps.apple.com/sa/app/new-body-new-me/id6475278515');
 
-            },title: 'For iOS',),
+            },title: 'For Apple',),
            const SizedBox(height: 16,),
       CustomElevatedButton(
         onPressed: () {
-          Share.share(subject: "","https://play.google.com/store/apps/com.drbooking.newbodynewme");
+          Share.share("https://play.google.com/store/apps/com.drbooking.newbodynewme");
         },
         titleColor: AppColors.foundationColor,
         titleText: "For Android",

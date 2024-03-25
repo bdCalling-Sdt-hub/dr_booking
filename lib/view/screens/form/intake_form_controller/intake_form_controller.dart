@@ -23,7 +23,7 @@ class IntakeFormController extends GetxController {
 
   List <String> contactby = ["Your cell number", "Email"];
   int selectedcategory = 0;
-  List <String> mailAddWithUser = ["Yes", "Not a this time"];
+  List <String> mailAddWithUser = ["Yes", "Not at time"];
   int selectedIndex = 0;
 
   bool isLoading = false;
