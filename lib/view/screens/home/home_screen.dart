@@ -2,6 +2,8 @@ import 'package:dr_booking/utils/app_colors.dart';
 import 'package:dr_booking/utils/app_images.dart';
 import 'package:dr_booking/utils/app_routes.dart';
 import 'package:dr_booking/utils/app_strings.dart';
+import 'package:dr_booking/view/screens/home/howit_work.dart';
+import 'package:dr_booking/view/screens/home/weight_loss_options.dart';
 import 'package:dr_booking/view/widgets/buttons/custom_elevated_button.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -150,7 +152,38 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-               // SizedBox(height: Get.height*0.3,),
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomElevatedButton(
+                      onPressed: () {
+                       Get.to(const HowItWorks());
+                      },
+                      titleSize: 12,
+                      titleText: "HOW IT WORKS",
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 16,
+                  ),
+
+                  Expanded(
+                    child: CustomElevatedButton(
+
+                      onPressed: () {
+                        Get.to(WeightLossOption());
+                      },
+                      titleColor: AppColors.foundationColor,
+                      titleSize: 12,
+                      titleText: "WEIGHT LOSS OPTIONS",
+                      buttonColor: AppColors.whiteColor,
+                      borderColor: AppColors.foundationColor,
+                      buttonRadius: 8,
+                    ),
+                  )
+
+                ],
+              ),
               Column(
                 children: [
                   CustomElevatedButton(
