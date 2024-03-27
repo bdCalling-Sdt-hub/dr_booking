@@ -84,7 +84,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     },
                   ),
                   const SizedBox(height: 12,),
-                  CustomTextField(title: "Change in pharmacy Information",
+                  CustomTextField(title: "Change in Pharmacy Information",
                     hintText: "Pharmacy Information",
                     textInputAction: TextInputAction.next,
                     textEditingController:controller.changePharmecyInformation ,
@@ -238,8 +238,8 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                     textEditingController:controller.enterThePharmacyName ,
                     hintStyle: GoogleFonts.lato(color: AppColors.foundationGrey200,fontWeight: FontWeight.w400,fontSize: 14),),
                   const SizedBox(height: 12,),
-                  CustomTextField(title: "When can we contact you?",
-                    hintText: "Date and time if you want a call back from me",
+                  CustomTextField(title: "Date and time if you want a call back Doctor?",
+                    hintText: "Type Date and Time",
                     keyboardType: TextInputType.text,
                     // inputFormatters: [
                     //   TimeTextInputFormatter(hourMaxValue:24, minuteMaxValue: 59 )
@@ -274,7 +274,7 @@ class _ProgressFormScreenState extends State<ProgressFormScreen> {
                         },
                       ),
                       const Flexible(
-                        child: CustomText(text: "I confirm all information filled in this form to be accurate and not misleading  in any way",
+                        child: CustomText(text: "By typing my name below,I confirm all information filled in this form to be accurate and not misleading  in any way",
                           textAlign: TextAlign.start,
                           maxLines: 3,
                           textOverflow: TextOverflow.ellipsis,

@@ -6,6 +6,7 @@ import 'package:dr_booking/view/screens/about_dr/repo.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class AboutDrScreen extends StatefulWidget {
   const AboutDrScreen({super.key});
@@ -17,16 +18,16 @@ class AboutDrScreen extends StatefulWidget {
 }
 
 class _AboutDrScreenState extends State<AboutDrScreen> {
-  @override
-  void initState() {
-    Get.put(ApiService());
-    Get.put(AboutRepo(apiService: Get.find()));
-    final controller = Get.put(AboutController(aboutRepo: Get.find()));
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      controller.aboutdrData();
-    });
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   Get.put(ApiService());
+  //   Get.put(AboutRepo(apiService: Get.find()));
+  //   final controller = Get.put(AboutController(aboutRepo: Get.find()));
+  //   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+  //     controller.aboutdrData();
+  //   });
+  //   super.initState();
+  // }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -44,7 +45,12 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
             fontWeight: FontWeight.w500,
           ),
         ),
-        body: GetBuilder<AboutController>(builder: (controller) {
+        body: SfPdfViewer.asset(
+            "assets/images/About New Body New ME page (2).pdf")
+
+
+
+        /*GetBuilder<AboutController>(builder: (controller) {
           return controller.isLoading
               ? const Center(
                   child: CircularProgressIndicator(
@@ -91,7 +97,7 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
                     ],
                   ),
                 );
-        }),
+        })*/,
       ),
     );
   }

@@ -23,7 +23,7 @@ class _AboutUsScreenState extends State<HowItWorks> {
           backgroundColor: AppColors.bgColor,
           centerTitle: true,
           title: const CustomText(
-            text: "WEIGHT LOSS OPTIONS",
+            text: "HOW IT WORKS",
             fontSize: 18,
             fontWeight: FontWeight.w500,
           ),

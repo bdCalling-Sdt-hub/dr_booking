@@ -43,6 +43,8 @@ dependencies:
   change_app_package_name: ^1.1.0
   path_provider: ^2.1.1
   shared_preferences: ^2.2.2
+  syncfusion_flutter_pdfviewer: ^25.1.35
+  advance_pdf_viewer:
 
 dev_dependencies:
   flutter_test:
