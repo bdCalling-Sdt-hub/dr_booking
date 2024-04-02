@@ -11,9 +11,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../utils/app_icons.dart';
+import '../../widgets/buttons/custom_button.dart';
 class HomeScreen extends StatefulWidget {
    const HomeScreen({super.key,});
 
@@ -73,18 +75,27 @@ class _HomeScreenState extends State<HomeScreen> {
          backgroundColor: AppColors.bgColor,
         appBar: AppBar(
           // backgroundColor: AppColors.bgColor,
-          toolbarHeight: 120,
+          toolbarHeight: 100,
           centerTitle: true,
           automaticallyImplyLeading: false,
           title: SvgPicture.asset(AppIcons.logo,color: AppColors.foundationColor,),
 
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40.0,horizontal: 20),
+          padding: const EdgeInsets.only(top: 20,bottom: 40,left: 20,right: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Stack(
+              Container(
+                height: 220,
+                width: Get.width,
+                decoration: const BoxDecoration(
+
+                  image: DecorationImage(image: AssetImage("assets/images/home_page.png"),fit: BoxFit.fill),
+
+                )
+              ),
+             /* Stack(
                clipBehavior:Clip.none,
                 children: [
                   Container(
@@ -151,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ],
-              ),
+              ),*/
               Row(
                 children: [
                   Expanded(
@@ -207,7 +218,40 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-              SizedBox()
+             ElevatedButton(
+               style: ElevatedButton.styleFrom(
+                 backgroundColor: AppColors.foundationColor
+               ),
+                 onPressed: (){
+
+               showDialog(context: context, builder: (context){
+                 return AlertDialog(
+                   title: Column(
+                     mainAxisAlignment: MainAxisAlignment.center,
+                     crossAxisAlignment: CrossAxisAlignment.center,
+                     children: [
+                       CustomButton(onTap: ()async{
+                         await Share.share('https://apps.apple.com/sa/app/new-body-new-me/id6475278515');
+
+                       },title: 'For Apple',),
+                       const SizedBox(height: 16,),
+                       CustomElevatedButton(
+                         onPressed: () {
+                           Share.share("https://play.google.com/store/apps/com.drbooking.newbodynewme");
+                         },
+                         titleColor: AppColors.foundationColor,
+                         titleText: "For Android",
+                         buttonColor: AppColors.whiteColor,
+                         borderColor: AppColors.foundationColor,
+                         buttonRadius: 8,
+                       ),
+
+                     ],
+                   ),
+                 );
+               });
+
+             }, child: CustomText(text: "Share App",color: AppColors.whiteColor,))
             ],
           ),
         ),
