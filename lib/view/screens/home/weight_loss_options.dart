@@ -37,7 +37,7 @@ class _AboutUsScreenState extends State<WeightLossOption> {
             )),
       ),
       body:  SfPdfViewer.asset(
-          "assets/images/weight loss landing page card.pdf")
+          "assets/images/weight loss options.pdf")
 
   /*    const SingleChildScrollView(
         padding: EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 24),

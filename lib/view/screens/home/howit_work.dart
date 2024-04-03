@@ -36,8 +36,22 @@ class _AboutUsScreenState extends State<HowItWorks> {
                 size: 20,
               )),
         ),
-        body: SfPdfViewer.asset(
-            "assets/images/How it works.pdf")
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: Get.height/2,
+
+              decoration: BoxDecoration(
+                image: DecorationImage(image: AssetImage("assets/images/How it works_page-0001.jpg"),fit: BoxFit.fill)
+              ),
+            )
+          ],
+        )
+
+
+        // SfPdfViewer.asset(
+        //     "assets/images/How it works.pdf")
 
         /*const SingleChildScrollView(
           padding: EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 24),
