@@ -3,6 +3,7 @@ import 'package:dr_booking/utils/app_colors.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 
 
@@ -35,7 +36,10 @@ class _AboutUsScreenState extends State<WeightLossOption> {
               size: 20,
             )),
       ),
-      body: const SingleChildScrollView(
+      body:  SfPdfViewer.asset(
+          "assets/images/weight loss landing page card.pdf")
+
+  /*    const SingleChildScrollView(
         padding: EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 24),
         child:  Column(
           children: [
@@ -69,7 +73,7 @@ Please note that weight loss results may vary in individuals and at the discreti
             )
           ],
         ),
-      )
+      )*/
     );
   }
 }

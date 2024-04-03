@@ -182,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: CustomElevatedButton(
 
                       onPressed: () {
-                        Get.to(WeightLossOption());
+                        Get.to(const WeightLossOption());
                       },
                       titleColor: AppColors.foundationColor,
                       titleSize: 12,
@@ -251,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                  );
                });
 
-             }, child: CustomText(text: "Share App",color: AppColors.whiteColor,))
+             }, child: const CustomText(text: "Share App",color: AppColors.whiteColor,))
             ],
           ),
         ),

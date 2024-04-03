@@ -3,6 +3,7 @@ import 'package:dr_booking/utils/app_colors.dart';
 import 'package:dr_booking/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 
 
@@ -35,7 +36,10 @@ class _AboutUsScreenState extends State<HowItWorks> {
                 size: 20,
               )),
         ),
-        body: const SingleChildScrollView(
+        body: SfPdfViewer.asset(
+            "assets/images/How it works.pdf")
+
+        /*const SingleChildScrollView(
           padding: EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 24),
           child:  Column(
             children: [
@@ -62,7 +66,7 @@ After a new patient request form is received, please expect a response via email
               )
             ],
           ),
-        )
+        )*/
     );
   }
 }
