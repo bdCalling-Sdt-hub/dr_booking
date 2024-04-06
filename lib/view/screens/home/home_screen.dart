@@ -1,7 +1,4 @@
-
-
 import 'dart:io';
-
 import 'package:dr_booking/utils/app_colors.dart';
 import 'package:dr_booking/utils/app_routes.dart';
 import 'package:dr_booking/utils/app_strings.dart';
