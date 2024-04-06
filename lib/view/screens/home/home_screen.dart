@@ -1,5 +1,8 @@
+
+
+import 'dart:io';
+
 import 'package:dr_booking/utils/app_colors.dart';
-import 'package:dr_booking/utils/app_images.dart';
 import 'package:dr_booking/utils/app_routes.dart';
 import 'package:dr_booking/utils/app_strings.dart';
 import 'package:dr_booking/view/screens/home/howit_work.dart';
@@ -13,6 +16,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../utils/app_icons.dart';
 import '../../widgets/buttons/custom_button.dart';
@@ -79,12 +83,11 @@ class _HomeScreenState extends State<HomeScreen> {
           centerTitle: true,
           automaticallyImplyLeading: false,
           title: SvgPicture.asset(AppIcons.logo,color: AppColors.foundationColor,),
-
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 20,bottom: 40,left: 20,right: 20),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.only(top: 40,bottom: 40,left: 20,right: 20),
+          physics: const BouncingScrollPhysics(),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 height: 220,
@@ -95,74 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 )
               ),
-             /* Stack(
-               clipBehavior:Clip.none,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(top: 8),
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        color: AppColors.foundationColor1,
-                        border: Border.all(color: AppColors.foundationColor, width: 1),
-                        borderRadius: BorderRadius.circular(16)
-                    ),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(width:120,),
-                        Flexible(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                           children: [
-                             CustomText(
-                               text: "Looking for medically supervised ",
-                               color: AppColors.foundationGrey,
-                               fontSize: 14,
-                               maxLines: 2,
-                               fontWeight: FontWeight.w400,
-                               textAlign: TextAlign.start,
-                             ),
-                             CustomText(
-                               textAlign: TextAlign.start,
-                               bottom: 12,
-                               text: "WEIGHT\nLOSS?",
-                               color: AppColors.foundationGrey,
-                               fontSize: 20,
-                               maxLines: 2,
-                               fontWeight: FontWeight.w500,
-                             ),
-                             CustomText(
-                               bottom: 12,
-                               textAlign: TextAlign.start,
-                               text: AppStrings.subTitle1,
-                               color: AppColors.foundationColor,
-                               fontSize: 14,
-                               fontWeight: FontWeight.w600,
-                               maxLines: 2,
-                               textOverflow: TextOverflow.ellipsis,
-                             ),
-                           ],
-                          ),
-                        ),
-                        SizedBox(),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: -30,
-                    left: 0,
-                    bottom: 0,
-                    child: SizedBox(
-                      child: Image.asset(
-                        AppImages.bannerImage,
-                        height: 170,
-                        width: 120,
-                      ),
-                    ),
-                  ),
-                ],
-              ),*/
+          const SizedBox(height: 12,),
               Row(
                 children: [
                   Expanded(
@@ -195,6 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 ],
               ),
+              const SizedBox(height: 12,),
               Column(
                 children: [
                   CustomElevatedButton(
@@ -218,11 +155,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
+             SizedBox(height: 12,),
              ElevatedButton(
                style: ElevatedButton.styleFrom(
                  backgroundColor: AppColors.foundationColor
                ),
                  onPressed: (){
+
+              //   _openStore();
 
                showDialog(context: context, builder: (context){
                  return AlertDialog(
@@ -232,12 +172,13 @@ class _HomeScreenState extends State<HomeScreen> {
                      children: [
                        CustomButton(onTap: ()async{
                          await Share.share('https://apps.apple.com/sa/app/new-body-new-me/id6475278515');
-
+                        Get.back();
                        },title: 'For Apple',),
                        const SizedBox(height: 16,),
                        CustomElevatedButton(
                          onPressed: () {
-                           Share.share("https://play.google.com/store/apps/com.drbooking.newbodynewme");
+                           Share.share("https://play.google.com/store/apps/details?id=com.drbooking.newbodynewme");
+                           Get.back();
                          },
                          titleColor: AppColors.foundationColor,
                          titleText: "For Android",
@@ -258,4 +199,19 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
+
+ /* Future<void> _openStore() async {
+    String packageName = 'com.residco.residpro';
+    Uri appStoreUrl = Uri.parse("https://apps.apple.com/sa/app/new-body-new-me/id6475278515");
+    String playStoreUrl = "https://play.google.com/store/apps/details?id=com.drbooking.newbodynewme";
+
+    if (await canLaunchUrl(appStoreUrl) && !Platform.isAndroid) {
+      await Share.share(appStoreUrl.toString());
+    } else if (await canLaunchUrl(Uri.parse(playStoreUrl)) && Platform.isAndroid) {
+      await Share.share(playStoreUrl);
+    } else {
+      throw 'Could not launch store';
+    }
+  }*/
 }

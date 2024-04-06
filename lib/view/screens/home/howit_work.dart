@@ -42,7 +42,7 @@ class _AboutUsScreenState extends State<HowItWorks> {
             Container(
               height: Get.height/2,
 
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(image: AssetImage("assets/images/How it works_page-0001.jpg"),fit: BoxFit.fill)
               ),
             )
