@@ -38,7 +38,7 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
         ),
         body:  SfPdfViewer.asset(
-            "assets/images/Terms-and-Conditions-for-New-Body-New-Me.pdf")
+            "assets/images/Terms-and-Conditions.pdf")
       )
     );
   }

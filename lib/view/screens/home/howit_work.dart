@@ -36,51 +36,9 @@ class _AboutUsScreenState extends State<HowItWorks> {
                 size: 20,
               )),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: Get.height/2,
-
-              decoration: const BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/images/How it works_page-0001.jpg"),fit: BoxFit.fill)
-              ),
-            )
-          ],
-        )
-
-
-        // SfPdfViewer.asset(
-        //     "assets/images/How it works.pdf")
-
-        /*const SingleChildScrollView(
-          padding: EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 24),
-          child:  Column(
-            children: [
-              CustomText(
-                  textAlign: TextAlign.start,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff5C5C5C),
-                  text:"""
-For new patients, download the “New Body New Me” app from the apple app store or the google play store (for android phone users) & from the app you can do the following:
-
-	1.	FILL OUT A NEW PATIENT FORM
-	2.	INCLUDE A DATE AND TIME WHEN YOU WILL BE AVAILABLE FOR A ZOOM CONSULTATION
-	3.	EXPECT YOUR MEDICATIONS SENT TO YOU FROM THE PHARMACY
-	4.	FILL OUT MONTHLY EXISTING PATIENT REPORT
-	5.	REQUEST PERIODIC FOLLOW UP CONSULTATION FROM THE DOCTOR
-
-After a new patient request form is received, please expect a response via email within 24 – 48 hours which will confirm your online consultation/zoom appointment.  This email will also address the consultation fee.  Patients who continue to require our services either monthly or every other month will be required to pay a follow up consultation fee per consultation.  “New Body New Me” does not bind patients to subscriptions or contracts for our service.
-
-              
-                """
-
-
-              )
-            ],
-          ),
-        )*/
+        body:
+        SfPdfViewer.asset(
+            "assets/images/How-It-Works updated.pdf")
     );
   }
 }

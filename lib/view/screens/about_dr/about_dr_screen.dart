@@ -46,7 +46,7 @@ class _AboutDrScreenState extends State<AboutDrScreen> {
           ),
         ),
         body: SfPdfViewer.asset(
-            "assets/images/About New Body New Me.pdf")
+            "assets/images/Online medically supervised weight loss clinic.pdf")
 
 
 

@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:dr_booking/utils/app_colors.dart';
 import 'package:dr_booking/utils/app_routes.dart';
 import 'package:dr_booking/utils/app_strings.dart';
@@ -13,8 +12,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../../utils/app_icons.dart';
 import '../../widgets/buttons/custom_button.dart';
 class HomeScreen extends StatefulWidget {
@@ -86,14 +83,17 @@ class _HomeScreenState extends State<HomeScreen> {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              Container(
-                height: 220,
-                width: Get.width,
-                decoration: const BoxDecoration(
-
-                  image: DecorationImage(image: AssetImage("assets/images/home_page.png"),fit: BoxFit.fill),
-
-                )
+                 SizedBox(
+                   height: 300,
+                 child:   InteractiveViewer(
+                   constrained: false,
+                     child: Image.asset(
+                       "assets/images/Screenshot at Apr 16 17-09-01.png",
+                        height: 300,
+                       width: MediaQuery.of(context).size.width,
+                       fit: BoxFit.fill,
+                     ),
+                   ),
               ),
           const SizedBox(height: 12,),
               Row(
@@ -152,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-             SizedBox(height: 12,),
+             const SizedBox(height: 12,),
              ElevatedButton(
                style: ElevatedButton.styleFrom(
                  backgroundColor: AppColors.foundationColor
