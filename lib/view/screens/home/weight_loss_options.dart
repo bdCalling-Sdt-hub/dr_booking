@@ -37,8 +37,7 @@ class _AboutUsScreenState extends State<WeightLossOption> {
             )),
       ),
       body:  SfPdfViewer.asset(
-          "assets/images/weigt_loss_option.pdf")
-
+          "assets/images/weight_loss_option.pdf")
     );
   }
 }

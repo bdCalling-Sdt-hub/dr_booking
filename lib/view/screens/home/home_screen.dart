@@ -14,14 +14,17 @@ import 'package:share_plus/share_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../utils/app_icons.dart';
 import '../../widgets/buttons/custom_button.dart';
+
 class HomeScreen extends StatefulWidget {
-   const HomeScreen({super.key,});
+  const HomeScreen({
+    super.key,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-class _HomeScreenState extends State<HomeScreen> {
 
+class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     _checkDialogShown();
@@ -40,17 +43,27 @@ class _HomeScreenState extends State<HomeScreen> {
       prefs.setBool('dialogShown', true);
     }
   }
-  _showWelcomeDialog(){
+
+  _showWelcomeDialog() {
     Future.delayed(Duration.zero, () {
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('Welcome!',style: TextStyle(color: AppColors.foundationColor),),
-            content: const Text('Kwesi Ntiforo MD welcomes you to New Body New Me',style: TextStyle(color: Colors.black87),),
+            title: const Text(
+              'Welcome!',
+              style: TextStyle(color: AppColors.foundationColor),
+            ),
+            content: const Text(
+              'Kwesi Ntiforo MD welcomes you to New Body New Me',
+              style: TextStyle(color: Colors.black87),
+            ),
             actions: <Widget>[
               TextButton(
-                child: const Text('Close',style: TextStyle(color: AppColors.foundationColor),),
+                child: const Text(
+                  'Close',
+                  style: TextStyle(color: AppColors.foundationColor),
+                ),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -64,44 +77,47 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return SafeArea(
-    top: false,
-
+      top: false,
       child: Scaffold(
-         backgroundColor: AppColors.bgColor,
+        backgroundColor: AppColors.bgColor,
         appBar: AppBar(
           // backgroundColor: AppColors.bgColor,
           toolbarHeight: 100,
           centerTitle: true,
           automaticallyImplyLeading: false,
-          title: SvgPicture.asset(AppIcons.logo,color: AppColors.foundationColor,),
+          title: SvgPicture.asset(
+            AppIcons.logo,
+            color: AppColors.foundationColor,
+          ),
         ),
         body: SingleChildScrollView(
-          padding: const EdgeInsets.only(top: 40,bottom: 40,left: 20,right: 20),
+          padding:
+              const EdgeInsets.only(top: 40, bottom: 40, left: 20, right: 20),
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-                 SizedBox(
-                   height: 300,
-                 child:   InteractiveViewer(
-                   constrained: false,
-                     child: Image.asset(
-                       "assets/images/Screenshot at Apr 16 17-09-01.png",
-                        height: 300,
-                       width: MediaQuery.of(context).size.width,
-                       fit: BoxFit.fill,
-                     ),
-                   ),
+              SizedBox(
+                height: 300,
+                child: InteractiveViewer(
+                  constrained: false,
+                  child: Image.asset(
+                    "assets/images/Screenshot at Apr 16 17-09-01.png",
+                    height: 300,
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.fill,
+                  ),
+                ),
               ),
-          const SizedBox(height: 12,),
+              const SizedBox(
+                height: 12,
+              ),
               Row(
                 children: [
                   Expanded(
                     child: CustomElevatedButton(
                       onPressed: () {
-                       Get.to(const HowItWorks());
+                        Get.to(const HowItWorks());
                       },
                       titleSize: 12,
                       titleText: "HOW IT WORKS",
@@ -110,25 +126,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(
                     width: 16,
                   ),
-
                   Expanded(
-                    child: CustomElevatedButton(
-
-                      onPressed: () {
-                        Get.to(const WeightLossOption());
-                      },
-                      titleColor: AppColors.foundationColor,
-                      titleSize: 12,
-                      titleText: "WEIGHT LOSS OPTIONS",
-                      buttonColor: AppColors.whiteColor,
-                      borderColor: AppColors.foundationColor,
-                      buttonRadius: 8,
+                      child: GestureDetector(
+                    onTap: () {
+                      Get.to(const WeightLossOption());
+                    },
+                    child: Container(
+                      padding:
+                          const EdgeInsetsDirectional.symmetric(vertical: 16),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: AppColors.foundationColor)),
+                      child: const CustomText(
+                        text: "WEIGHT LOSS OPTIONS",
+                        fontSize: 12,
+                        color: AppColors.foundationColor,
+                      ),
                     ),
-                  )
-
+                  ))
                 ],
               ),
-              const SizedBox(height: 12,),
+              const SizedBox(
+                height: 12,
+              ),
               Column(
                 children: [
                   CustomElevatedButton(
@@ -142,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   CustomElevatedButton(
                     onPressed: () {
-                      Get.toNamed(AppRoute.preogressSreen    );
+                      Get.toNamed(AppRoute.preogressSreen);
                     },
                     titleColor: AppColors.foundationColor,
                     titleText: AppStrings.existingPatient,
@@ -152,44 +172,55 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-             const SizedBox(height: 12,),
-             ElevatedButton(
-               style: ElevatedButton.styleFrom(
-                 backgroundColor: AppColors.foundationColor
-               ),
-                 onPressed: (){
+              const SizedBox(
+                height: 12,
+              ),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.foundationColor),
+                  onPressed: () {
+                    //   _openStore();
 
-              //   _openStore();
-
-               showDialog(context: context, builder: (context){
-                 return AlertDialog(
-                   title: Column(
-                     mainAxisAlignment: MainAxisAlignment.center,
-                     crossAxisAlignment: CrossAxisAlignment.center,
-                     children: [
-                       CustomButton(onTap: ()async{
-                         await Share.share('https://apps.apple.com/sa/app/new-body-new-me/id6475278515');
-                        Get.back();
-                       },title: 'For Apple',),
-                       const SizedBox(height: 16,),
-                       CustomElevatedButton(
-                         onPressed: () {
-                           Share.share("https://play.google.com/store/apps/details?id=com.drbooking.newbodynewme");
-                           Get.back();
-                         },
-                         titleColor: AppColors.foundationColor,
-                         titleText: "For Android",
-                         buttonColor: AppColors.whiteColor,
-                         borderColor: AppColors.foundationColor,
-                         buttonRadius: 8,
-                       ),
-
-                     ],
-                   ),
-                 );
-               });
-
-             }, child: const CustomText(text: "Share App",color: AppColors.whiteColor,))
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                CustomButton(
+                                  onTap: () async {
+                                    await Share.share(
+                                        'https://apps.apple.com/sa/app/new-body-new-me/id6475278515');
+                                    Get.back();
+                                  },
+                                  title: 'For Apple',
+                                ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                CustomElevatedButton(
+                                  onPressed: () {
+                                    Share.share(
+                                        "https://play.google.com/store/apps/details?id=com.drbooking.newbodynewme");
+                                    Get.back();
+                                  },
+                                  titleColor: AppColors.foundationColor,
+                                  titleText: "For Android",
+                                  buttonColor: AppColors.whiteColor,
+                                  borderColor: AppColors.foundationColor,
+                                  buttonRadius: 8,
+                                ),
+                              ],
+                            ),
+                          );
+                        });
+                  },
+                  child: const CustomText(
+                    text: "Share App",
+                    color: AppColors.whiteColor,
+                  ))
             ],
           ),
         ),
@@ -197,8 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-
- /* Future<void> _openStore() async {
+  /* Future<void> _openStore() async {
     String packageName = 'com.residco.residpro';
     Uri appStoreUrl = Uri.parse("https://apps.apple.com/sa/app/new-body-new-me/id6475278515");
     String playStoreUrl = "https://play.google.com/store/apps/details?id=com.drbooking.newbodynewme";
